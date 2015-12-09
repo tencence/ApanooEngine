@@ -68,14 +68,7 @@ BOOL MainScene::DrawGL(GLvoid)
 
 BOOL MainScene::UpdateGL(GLvoid)
 {
-	/* 
-	* 系统键盘映射说明
-	* F1->F12     : VK_F1 -> VK_F12
-	* num 0 -> 9  : VK_NUMPAD0 -> VK_NUMPAD9
-	* char A -> Z : 0x41 -> ... 递增 
-	*/
-
-	if (keyDown(VK_F1))  // 按下F1 截屏并保存为bmp
+	if (keyDown(key_f1))
 	{
 
 	}

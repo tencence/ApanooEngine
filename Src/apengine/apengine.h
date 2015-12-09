@@ -3,5 +3,6 @@
 
 #include "app/QApp.h"                     // applicatiion
 #include "graphics/window/GLWindow.h"	  // opengl window
+#include "input/Key_map.h"				  // input key map
 
 #endif // !__APENGINE_H__

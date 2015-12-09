@@ -269,5 +269,3 @@ HRESULT GLWindow::OnPaint(WPARAM wParam, LPARAM lParam)
 	::ValidateRect(m_hWnd, NULL);   // 使窗口有效
 	return TRUE;
 }
-
-

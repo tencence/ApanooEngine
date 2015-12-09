@@ -104,7 +104,7 @@
     <ClInclude Include="..\apengine\app\QApp.h" />
     <ClInclude Include="..\apengine\graphics\window\GLWindow.h" />
     <ClInclude Include="..\apengine\graphics\window\QWnd.h" />
-    <ClInclude Include="..\apengine\graphics\window\stdafx.h" />
+    <ClInclude Include="..\apengine\input\Key_map.h" />
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MainScene.h" />
