@@ -95,6 +95,9 @@
     <ClCompile Include="..\apengine\app\QApp.cpp" />
     <ClCompile Include="..\apengine\graphics\window\GLWindow.cpp" />
     <ClCompile Include="..\apengine\graphics\window\QWnd.cpp" />
+    <ClCompile Include="..\apengine\maths\vec2.cpp" />
+    <ClCompile Include="..\apengine\maths\vec3.cpp" />
+    <ClCompile Include="..\apengine\maths\vec4.cpp" />
     <ClCompile Include="AppDelegate.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainScene.cpp" />
@@ -105,6 +108,9 @@
     <ClInclude Include="..\apengine\graphics\window\GLWindow.h" />
     <ClInclude Include="..\apengine\graphics\window\QWnd.h" />
     <ClInclude Include="..\apengine\input\Key_map.h" />
+    <ClInclude Include="..\apengine\maths\vec2.h" />
+    <ClInclude Include="..\apengine\maths\vec3.h" />
+    <ClInclude Include="..\apengine\maths\vec4.h" />
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MainScene.h" />

@@ -1,3 +1,8 @@
+/*
+*  author : Ã∑Ωı÷æ
+*  email  : apanoo@126.com
+*  time   : 2015 12 09
+*/
 #ifndef __KEYMAP_H__
 #define __KEYMAP_H__
 

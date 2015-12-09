@@ -15,6 +15,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>main</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\maths\vec2.cpp">
+      <Filter>apengine\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\maths\vec3.cpp">
+      <Filter>apengine\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\maths\vec4.cpp">
+      <Filter>apengine\maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppDelegate.h" />
@@ -36,6 +45,15 @@
     </ClInclude>
     <ClInclude Include="..\apengine\input\Key_map.h">
       <Filter>apengine\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\maths\vec2.h">
+      <Filter>apengine\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\maths\vec3.h">
+      <Filter>apengine\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\maths\vec4.h">
+      <Filter>apengine\maths</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
