@@ -43,22 +43,22 @@ vec2& vec2::divide(const vec2& other)
 }
 
 // ²Ù×÷·û
-vec2& operator+(vec2 left, const vec2& right)
+vec2 operator+(vec2 left, const vec2& right)
 {
 	return left.add(right);
 }
 
-vec2& operator-(vec2 left, const vec2& right)
+vec2 operator-(vec2 left, const vec2& right)
 {
 	return left.subtract(right);
 }
 
-vec2& operator*(vec2 left, const vec2& right)
+vec2 operator*(vec2 left, const vec2& right)
 {
 	return left.mutiply(right);
 }
 
-vec2& operator/(vec2 left, const vec2& right)
+vec2 operator/(vec2 left, const vec2& right)
 {
 	return left.divide(right);
 }

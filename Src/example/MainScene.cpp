@@ -1,5 +1,9 @@
 #include "MainScene.h"
 #include <math.h>
+#include "../apengine/maths/maths.h"
+
+
+mat4 position = mat4::translation(vec3(3, 3, 3));
 
 MainScene::MainScene()
 {

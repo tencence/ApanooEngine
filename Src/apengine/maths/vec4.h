@@ -21,10 +21,10 @@ struct vec4
 	vec4& divide(const vec4& other);
 
 	// ²Ù×÷·û
-	friend vec4& operator+(vec4 left, const vec4& right);
-	friend vec4& operator-(vec4 left, const vec4& right);
-	friend vec4& operator*(vec4 left, const vec4& right);
-	friend vec4& operator/(vec4 left, const vec4& right);
+	friend vec4 operator+(vec4 left, const vec4& right);
+	friend vec4 operator-(vec4 left, const vec4& right);
+	friend vec4 operator*(vec4 left, const vec4& right);
+	friend vec4 operator/(vec4 left, const vec4& right);
 
 	bool operator==(const vec4& other);
 	bool operator!=(const vec4& other);

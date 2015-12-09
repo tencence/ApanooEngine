@@ -24,6 +24,9 @@
     <ClCompile Include="..\apengine\maths\vec4.cpp">
       <Filter>apengine\maths</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\maths\mat4.cpp">
+      <Filter>apengine\maths</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppDelegate.h" />
@@ -53,6 +56,15 @@
       <Filter>apengine\maths</Filter>
     </ClInclude>
     <ClInclude Include="..\apengine\maths\vec4.h">
+      <Filter>apengine\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\maths\mat4.h">
+      <Filter>apengine\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\maths\math_tool.h">
+      <Filter>apengine\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\maths\maths.h">
       <Filter>apengine\maths</Filter>
     </ClInclude>
   </ItemGroup>
