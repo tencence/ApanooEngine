@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="AppDelegate.cpp" />
+    <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="..\apengine\app\QApp.cpp">
+      <Filter>apengine\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\window\GLWindow.cpp">
+      <Filter>apengine\graphics\window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\window\QWnd.cpp">
+      <Filter>apengine\graphics\window</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main.h" />
+    <ClInclude Include="AppDelegate.h" />
+    <ClInclude Include="MainScene.h" />
+    <ClInclude Include="..\apengine\app\QApp.h">
+      <Filter>apengine\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\window\GLWindow.h">
+      <Filter>apengine\graphics\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\window\QWnd.h">
+      <Filter>apengine\graphics\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\window\stdafx.h">
+      <Filter>apengine\graphics\window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\apengine.h">
+      <Filter>apengine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="apengine">
+      <UniqueIdentifier>{dad724d3-44d6-4aa8-bf28-485dff5c7245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\app">
+      <UniqueIdentifier>{bf681aee-4b66-44ae-a0af-fa2ede70b2e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics">
+      <UniqueIdentifier>{02c20892-9bc4-455b-92bd-f4ab09603f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\utils">
+      <UniqueIdentifier>{6f792a41-61f8-447b-a1dd-0454206284d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\maths">
+      <UniqueIdentifier>{8c0fc2ad-efe5-4930-a1b3-635f6f254895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\audio">
+      <UniqueIdentifier>{7ce1c8e5-96a2-4b2f-a668-d591b2abf09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics\window">
+      <UniqueIdentifier>{0036d485-1c26-4b44-92dc-09b7c31b3ad3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
