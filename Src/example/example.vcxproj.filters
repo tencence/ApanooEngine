@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AppDelegate.cpp" />
-    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="..\apengine\app\QApp.cpp">
       <Filter>apengine\app</Filter>
     </ClCompile>
@@ -27,10 +25,14 @@
     <ClCompile Include="..\apengine\maths\mat4.cpp">
       <Filter>apengine\maths</Filter>
     </ClCompile>
+    <ClCompile Include="AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppDelegate.h" />
-    <ClInclude Include="MainScene.h" />
     <ClInclude Include="..\apengine\app\QApp.h">
       <Filter>apengine\app</Filter>
     </ClInclude>
@@ -67,6 +69,12 @@
     <ClInclude Include="..\apengine\maths\mathUtils.h">
       <Filter>apengine\maths</Filter>
     </ClInclude>
+    <ClInclude Include="AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="apengine">
@@ -95,6 +103,9 @@
     </Filter>
     <Filter Include="apengine\input">
       <UniqueIdentifier>{4c49349e-3743-4a87-93a2-4e9eb5447bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{f8b4aef9-9ef7-443c-a8b9-66851a4e6da8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
