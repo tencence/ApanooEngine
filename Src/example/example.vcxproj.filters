@@ -61,10 +61,10 @@
     <ClInclude Include="..\apengine\maths\mat4.h">
       <Filter>apengine\maths</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\maths\math_tool.h">
+    <ClInclude Include="..\apengine\maths\maths.h">
       <Filter>apengine\maths</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\maths\maths.h">
+    <ClInclude Include="..\apengine\maths\mathUtils.h">
       <Filter>apengine\maths</Filter>
     </ClInclude>
   </ItemGroup>
