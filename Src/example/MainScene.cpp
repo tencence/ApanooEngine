@@ -1,9 +1,8 @@
 #include "MainScene.h"
 #include <math.h>
 #include "../apengine/maths/maths.h"
-
-
-mat4 position = mat4::translation(vec3(3, 3, 3));
+#include <iostream>
+#include "../apengine/graphics/shader/shader.h"
 
 MainScene::MainScene()
 {
@@ -57,12 +56,23 @@ BOOL MainScene::initGL(GLvoid)
 	return TRUE;
 }
 
+//static Shader shader("shader/triangles.vert", "shader/triangles.frag");
+
 BOOL MainScene::DrawGL(GLvoid)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);     // 清除颜色和深度缓存
 	glLoadIdentity(); // 重置当前矩阵
 	///////////////////////////////绘制////////////////////////////////////////
-	
+	auto temp = glGetString(GL_VERSION);
+	glColor3b(100, 220, 110);
+	glBegin(GL_QUADS);
+
+	glVertex3f(-0.5f, -0.2f, 0.0f);
+	glVertex3f( 0.5f, -0.2f, 0.0f);
+	glVertex3f( 0.5f,  0.2f, 0.0f);
+	glVertex3f(-0.5f,  0.2f, 0.0f);
+
+	glEnd();
 	
 	//////////////////////////////////////////////////////////////////////////
 

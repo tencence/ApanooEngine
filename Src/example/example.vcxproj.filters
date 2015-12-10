@@ -31,6 +31,9 @@
     <ClCompile Include="MainScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\graphics\shader\shader.cpp">
+      <Filter>apengine\graphics\shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\app\QApp.h">
@@ -75,6 +78,12 @@
     <ClInclude Include="MainScene.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\apengine\utils\FileUtils.h">
+      <Filter>apengine\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\shader\shader.h">
+      <Filter>apengine\graphics\shader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="apengine">
@@ -106,6 +115,9 @@
     </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{f8b4aef9-9ef7-443c-a8b9-66851a4e6da8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics\shader">
+      <UniqueIdentifier>{8ba7d7f2-e842-4d50-acf1-1caa543cf3ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
