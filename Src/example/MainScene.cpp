@@ -4,6 +4,8 @@
 #include <iostream>
 #include "../apengine/graphics/shader/shader.h"
 
+#include "ShaderLoader/LoadShaders.h"
+
 MainScene::MainScene()
 {
 
@@ -33,6 +35,9 @@ void MainScene::ViewMode()
 	glLoadIdentity();
 }
 
+// shader
+static Shader shader("shader/triangles.vert", "shader/triangles.frag");
+
 BOOL MainScene::initGL(GLvoid)
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
@@ -51,12 +56,12 @@ BOOL MainScene::initGL(GLvoid)
 
 	/////////////////////////////≥ı ºªØ////////////////////////////////////////
 	
-	
+	shader.init();  // shader initial 
+
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;
 }
 
-//static Shader shader("shader/triangles.vert", "shader/triangles.frag");
 
 BOOL MainScene::DrawGL(GLvoid)
 {
@@ -65,6 +70,9 @@ BOOL MainScene::DrawGL(GLvoid)
 	///////////////////////////////ªÊ÷∆////////////////////////////////////////
 	auto temp = glGetString(GL_VERSION);
 	glColor3b(100, 220, 110);
+	
+	shader.enable();  // enable shader
+
 	glBegin(GL_QUADS);
 
 	glVertex3f(-0.5f, -0.2f, 0.0f);

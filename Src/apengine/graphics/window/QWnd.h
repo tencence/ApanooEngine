@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#pragma comment(lib,"glew32.lib")    // glew¿â
+#pragma comment(lib,"glew32s.lib")    // glew¿â
 
 class QWnd
 {

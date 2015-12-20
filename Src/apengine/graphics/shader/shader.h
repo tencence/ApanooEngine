@@ -1,8 +1,15 @@
 #ifndef __SHADER_H__
 #define __SHADER_H__
 
-#include "GL/glew.h"
 #include "../../utils/FileUtils.h"
+#include <GL/gl.h>
+
+#ifdef __cplusplus
+
+#define BUFFER_OFFSET(x)  ((const void*) (x))
+
+extern "C" {
+#endif  // __cplusplus
 
 class Shader
 {
@@ -11,16 +18,20 @@ public:
 
 	Shader(const char* vertPath, const char* fragPath);
 
-	void enable() const;  // 启用
-	void diable() const;  // 禁用
+	void init();          // 加载 shader
+	void enable() const;  // 启用 shader 
+	void diable() const;  // 禁用 shader
 
 private:
-	GLuint load();        // 加载 shader
 
 private:
 	GLuint m_ShaderID;
 	const char* m_VertPath;
 	const char* m_FragPath;
 };
+
+#ifdef __cplusplus
+};
+#endif // __cplusplus
 
 #endif
