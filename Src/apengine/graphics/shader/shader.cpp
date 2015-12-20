@@ -1,5 +1,16 @@
+#include <cstdlib>
+#include <iostream>
+
+#define GLEW_STATIC
+#include "GL/glew.h"
+
 #include "shader.h"
 #include <vector>
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
+//////////////////////////////////////////////////////////////////////////
 
 Shader::~Shader()
 {
@@ -9,7 +20,7 @@ Shader::~Shader()
 Shader::Shader(const char* vertPath, const char* fragPath)
 : m_VertPath(vertPath), m_FragPath(fragPath)
 {
-	m_ShaderID = load();
+	
 }
 
 void Shader::enable() const
@@ -22,7 +33,7 @@ void Shader::diable() const
 	glUseProgram(0);
 }
 
-GLuint Shader::load()
+void Shader::init()
 {
 	GLuint program = glCreateProgram();  // bug --? ±¿¿£
 
@@ -48,7 +59,7 @@ GLuint Shader::load()
 		// log("error compile vertex shader");
 		// log(&error[0]);
 		glDeleteShader(vertex);
-		return 0;
+		return;
 	}
 
 	glShaderSource(fragment, 1, &fragSource, NULL);
@@ -63,7 +74,7 @@ GLuint Shader::load()
 		// log("error compile fragment shader");
 		// log(&error[0]);
 		glDeleteShader(fragment);
-		return 0;
+		return;
 	}
 
 	// attach
@@ -78,6 +89,10 @@ GLuint Shader::load()
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
 
-	return program;
+	m_ShaderID = program;
 }
 
+//////////////////////////////////////////////////////////////////////////
+#ifdef __cplusplus
+}
+#endif // __cplusplus
