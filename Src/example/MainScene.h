@@ -14,7 +14,7 @@ public:
 	BOOL initGL(GLvoid) override;
 
 	// 显示模式
-	void ViewMode() override;
+	// void ViewMode() override;
 
 	// 绘制场景
 	BOOL DrawGL(GLvoid) override;

@@ -29,8 +29,8 @@ BOOL GLWindow::CreateGlWnd(const char* title, int x, int y, int width, int heigh
 	// 全屏处理 - 预留
 	
 	// 窗口样式
-	windowStyle = WS_POPUP;
-	windowExStyle |= WS_EX_TOPMOST;
+	//windowStyle = WS_POPUP;
+	//windowExStyle |= WS_EX_TOPMOST;
 
 	::AdjustWindowRectEx(&windowRect, windowStyle, 0, windowExStyle); // 调整窗口
 
@@ -125,6 +125,7 @@ BOOL GLWindow::CreateGlWnd(const char* title, int x, int y, int width, int heigh
 	RECT rect;		 // 客户区大小
 	::GetClientRect(m_hWnd, &rect);
 	ResizeGLScene(rect.right - rect.left, rect.bottom - rect.top);  // 设置GL屏幕 (注意，这里只使用客户区计算)
+	//ResizeGLScene(width, height);
 
 	if (!initGL())   // 初始化opengl
 	{
@@ -246,6 +247,8 @@ HRESULT GLWindow::OnKeyUp(WPARAM wParam, LPARAM lParam)
 
 HRESULT GLWindow::OnSize(WPARAM wParam, LPARAM lParam)
 {
+	auto a = LOWORD(lParam);
+	auto b = HIWORD(lParam);
 	ResizeGLScene(LOWORD(lParam), HIWORD(lParam));
 	return 0;
 }
