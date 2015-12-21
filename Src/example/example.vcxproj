@@ -94,6 +94,8 @@
   <ItemGroup>
     <ClCompile Include="..\apengine\app\QApp.cpp" />
     <ClCompile Include="..\apengine\graphics\buffers\buffer.cpp" />
+    <ClCompile Include="..\apengine\graphics\buffers\indexbuffer.cpp" />
+    <ClCompile Include="..\apengine\graphics\buffers\vertexarray.cpp" />
     <ClCompile Include="..\apengine\graphics\shader\shader.cpp" />
     <ClCompile Include="..\apengine\graphics\window\GLWindow.cpp" />
     <ClCompile Include="..\apengine\graphics\window\QWnd.cpp" />
@@ -109,6 +111,8 @@
     <ClInclude Include="..\apengine\apengine.h" />
     <ClInclude Include="..\apengine\app\QApp.h" />
     <ClInclude Include="..\apengine\graphics\buffers\buffer.h" />
+    <ClInclude Include="..\apengine\graphics\buffers\indexbuffer.h" />
+    <ClInclude Include="..\apengine\graphics\buffers\vertexarray.h" />
     <ClInclude Include="..\apengine\graphics\shader\shader.h" />
     <ClInclude Include="..\apengine\graphics\window\GLWindow.h" />
     <ClInclude Include="..\apengine\graphics\window\QWnd.h" />

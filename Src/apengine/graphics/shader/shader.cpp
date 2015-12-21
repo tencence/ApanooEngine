@@ -17,11 +17,15 @@ Shader::~Shader()
 Shader::Shader(const char* vertPath, const char* fragPath)
 : m_VertPath(vertPath), m_FragPath(fragPath)
 {
-	
+	m_ShaderID = -1;
 }
 
-void Shader::enable() const
+void Shader::enable()
 {
+	if (-1 == m_ShaderID)
+	{
+		init();
+	}
 	glUseProgram(m_ShaderID);
 }
 

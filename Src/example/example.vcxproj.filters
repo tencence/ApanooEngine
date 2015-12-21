@@ -37,6 +37,12 @@
     <ClCompile Include="..\apengine\graphics\buffers\buffer.cpp">
       <Filter>apengine\graphics\buffers</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\graphics\buffers\vertexarray.cpp">
+      <Filter>apengine\graphics\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\buffers\indexbuffer.cpp">
+      <Filter>apengine\graphics\buffers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\app\QApp.h">
@@ -88,6 +94,12 @@
       <Filter>apengine\graphics\shader</Filter>
     </ClInclude>
     <ClInclude Include="..\apengine\graphics\buffers\buffer.h">
+      <Filter>apengine\graphics\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\buffers\vertexarray.h">
+      <Filter>apengine\graphics\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\buffers\indexbuffer.h">
       <Filter>apengine\graphics\buffers</Filter>
     </ClInclude>
   </ItemGroup>

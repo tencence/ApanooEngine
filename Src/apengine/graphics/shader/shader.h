@@ -12,7 +12,7 @@ public:
 	Shader(const char* vertPath, const char* fragPath);
 
 	void init();          // 加载 shader
-	void enable() const;  // 启用 shader 
+	void enable();        // 启用 shader 
 	void diable() const;  // 禁用 shader
 
 	///////////////////////////////////drt uniform///////////////////////////////////////
