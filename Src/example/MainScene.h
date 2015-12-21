@@ -4,6 +4,9 @@
 class TextureLoader;
 class ScreenShot;
 
+class renderable2D;
+class Simple2DRender;
+
 class MainScene : public GLWindow
 {
 public:
@@ -12,9 +15,6 @@ public:
 
 	// 初始化
 	BOOL initGL(GLvoid) override;
-
-	// 显示模式
-	// void ViewMode() override;
 
 	// 绘制场景
 	BOOL DrawGL(GLvoid) override;
@@ -25,6 +25,9 @@ public:
 	// opengl窗口销毁前的处理
 	GLvoid DestroyGL(GLvoid) override;
 
-private:
+	HRESULT OnMouseMove(WPARAM wParam, LPARAM lParam) override;
 
+private:
+	renderable2D* sprite;
+	Simple2DRender* render;
 };

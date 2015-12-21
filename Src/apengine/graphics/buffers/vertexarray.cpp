@@ -1,8 +1,9 @@
 #include "vertexarray.h"
 
 VertexArray::VertexArray()
+	: m_ArrayID(-1)
 {
-	m_ArrayID = -1;
+	
 }
 
 VertexArray::~VertexArray()

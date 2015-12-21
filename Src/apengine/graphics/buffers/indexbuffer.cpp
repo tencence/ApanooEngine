@@ -1,9 +1,9 @@
 #include "indexbuffer.h"
 
 IndexBuffer::IndexBuffer(GLushort* data, GLsizei count)
-	:m_Count(count),m_Data(data)
+	:m_Count(count),m_Data(data), m_BufferID(-1)
 {
-	m_BufferID = -1;
+
 }
 
 void IndexBuffer::bind()
