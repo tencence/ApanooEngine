@@ -34,6 +34,9 @@
     <ClCompile Include="..\apengine\graphics\shader\shader.cpp">
       <Filter>apengine\graphics\shader</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\graphics\buffers\buffer.cpp">
+      <Filter>apengine\graphics\buffers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\app\QApp.h">
@@ -84,6 +87,9 @@
     <ClInclude Include="..\apengine\graphics\shader\shader.h">
       <Filter>apengine\graphics\shader</Filter>
     </ClInclude>
+    <ClInclude Include="..\apengine\graphics\buffers\buffer.h">
+      <Filter>apengine\graphics\buffers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="apengine">
@@ -118,6 +124,9 @@
     </Filter>
     <Filter Include="apengine\graphics\shader">
       <UniqueIdentifier>{8ba7d7f2-e842-4d50-acf1-1caa543cf3ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics\buffers">
+      <UniqueIdentifier>{0edb7ae4-889b-4912-905a-92eb07f3b4fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

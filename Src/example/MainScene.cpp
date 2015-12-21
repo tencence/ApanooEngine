@@ -83,7 +83,7 @@ BOOL MainScene::initGL(GLvoid)
 	// math
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 	shader.setUniformMat4("pr_matrix", ortho); // setuniform matrix4
-	shader.setUniformMat4("ml_matrix", mat4::rotation(45.0f, vec3(0.0f,0.0f,1.0f)));
+	//shader.setUniformMat4("ml_matrix", mat4::rotation(45.0f, vec3(0.0f,0.0f,1.0f)));
 
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;
@@ -96,7 +96,7 @@ BOOL MainScene::DrawGL(GLvoid)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);     // 清除颜色和深度缓存
 	glLoadIdentity(); // 重置当前矩阵
 	///////////////////////////////绘制////////////////////////////////////////
-
+	
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	
 	//////////////////////////////////////////////////////////////////////////
