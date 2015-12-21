@@ -1,3 +1,10 @@
+/*
+ * use         : »æÖÆ·½Ê½ : draw elements!
+ * vertexarray : VAO
+ * buffer      : buffer data
+ * indexbuffer : IBO
+ */
+
 #pragma once
 
 #include <vector>

@@ -28,6 +28,5 @@ public:
 	HRESULT OnMouseMove(WPARAM wParam, LPARAM lParam) override;
 
 private:
-	renderable2D* sprite;
-	Simple2DRender* render;
+
 };
