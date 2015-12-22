@@ -6,7 +6,12 @@ Buffer::Buffer(GLfloat* data, GLsizei count, GLuint componentCount)
 	m_BufferID = 0;
 }
 
-void Buffer::init() 
+Buffer::~Buffer()
+{
+	glDeleteBuffers(1, &m_BufferID);
+}
+
+void Buffer::init()
 {
 	glGenBuffers(1, &m_BufferID);		        // gend
 	glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);  // bind

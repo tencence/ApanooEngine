@@ -157,8 +157,8 @@ GLvoid GLWindow::ResizeGLScene(GLsizei width, GLsizei height)
 	{
 		height = 1;  // 防止被0除
 	}
-	//m_width = width;
-	//m_height = height;
+	m_width = width;
+	m_height = height;
 	glViewport(0, 0, (GLsizei)width, (GLsizei)height);  
 	ViewMode();      // 设置显示模式
 }

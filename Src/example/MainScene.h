@@ -4,7 +4,7 @@
 class TextureLoader;
 class ScreenShot;
 
-class renderable2D;
+class StaticSprite;
 class Simple2DRender;
 
 class MainScene : public GLWindow
@@ -29,5 +29,5 @@ public:
 
 private:
 	Simple2DRender* render;
-	renderable2D* sprite;
+	StaticSprite* sprite[10];
 };

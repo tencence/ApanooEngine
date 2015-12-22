@@ -6,12 +6,10 @@
 
 #include "../apengine/graphics/shader/shader.h"
 
-#include "../apengine/graphics/buffers/buffer.h"
-#include "../apengine/graphics/buffers/vertexarray.h"
-#include "../apengine/graphics/buffers/indexbuffer.h"
-
 #include "../apengine/graphics/render2D/simple2Drender.h"
 #include "../apengine/graphics/render2D/renderable2D.h"
+
+#include "../apengine/graphics/render2D/staticSprite.h"
 
 
 MainScene::MainScene()
@@ -44,13 +42,14 @@ BOOL MainScene::initGL(GLvoid)
 	/////////////////////////////初始化////////////////////////////////////////
 	
 	// enable shader
-	shader.enable();  
+	shader.enable();
 	
 	// render layer
 	render = new Simple2DRender();
 
 	// sprites
-	sprite = new renderable2D(vec3(1, 1, 0), vec2(4, 5), vec4(1, 0, 1, 1), shader);
+	sprite[0] = new StaticSprite(1, 1, 3, 3, vec4(1, 0, 1, 1), shader);
+	sprite[1] = new StaticSprite(4, 4, 1, 1, vec4(1, 0, 0, 1), shader);
 	
 	// math
 	mat4 ortho = mat4::orthographic(0.0f, 8.0f, 0.0f, 6.0f, -1.0f, 1.0f);
@@ -68,8 +67,9 @@ BOOL MainScene::DrawGL(GLvoid)
 	glLoadIdentity(); // 重置当前矩阵
 	///////////////////////////////绘制////////////////////////////////////////
 
-	render->submit(sprite);
-	render->flush();
+	render->addItem(sprite[0]);
+	render->addItem(sprite[1]);
+	render->drawItems();
 
 	//////////////////////////////////////////////////////////////////////////
 

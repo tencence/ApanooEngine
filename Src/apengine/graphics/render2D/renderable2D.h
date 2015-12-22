@@ -1,4 +1,4 @@
-// 用于渲染的物体
+// 可渲染物体
 #pragma once
 #include "gl/glew.h"
 #include "../buffers/buffer.h"
@@ -9,18 +9,21 @@
 
 #include "../../maths/maths.h"
 
+// 顶点结构体
+struct VertexData
+{
+	vec3 vertex;
+	vec4 color;
+};
+
 class renderable2D
 {
 public:
-	renderable2D(vec3 position, vec2 size, vec4 color, Shader& shader);
+	renderable2D(vec3 position, vec2 size, vec4 color);
 
 	~renderable2D();
 
 public:
-	inline VertexArray* getVAO() const { return m_VertxArray; }
-	inline IndexBuffer* getIBO() const { return m_IndexBuffer; }
-
-	inline Shader& getShader() const { return m_Shader; }
 
 	inline const vec3& getPosition() const { return m_Position; }
 	inline const vec2& getSize() const { return m_Size; }
@@ -30,11 +33,4 @@ public:
 	vec3 m_Position;  // 位置
 	vec2 m_Size;	  // 大小
 	vec4 m_Color;	  // 颜色
-
-	VertexArray* m_VertxArray;  // VAO
-	IndexBuffer* m_IndexBuffer; // IBO
-
-	GLushort m_Indices[6];      // 保留索引引用，解决渲染时IBO失效问题
-
-	Shader& m_Shader;
 };

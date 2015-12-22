@@ -46,10 +46,19 @@
     <ClCompile Include="..\apengine\graphics\render2D\render2D.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
-    <ClCompile Include="..\apengine\graphics\render2D\simple2Drender.cpp">
+    <ClCompile Include="..\apengine\graphics\render2D\renderable2D.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
-    <ClCompile Include="..\apengine\graphics\render2D\renderable2D.cpp">
+    <ClCompile Include="..\apengine\graphics\render2D\batch2DRender.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\simple2DRender.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\sprite.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,9 +96,6 @@
     <ClInclude Include="..\apengine\maths\maths.h">
       <Filter>apengine\maths</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\maths\mathUtils.h">
-      <Filter>apengine\maths</Filter>
-    </ClInclude>
     <ClInclude Include="AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -114,10 +120,22 @@
     <ClInclude Include="..\apengine\graphics\render2D\render2D.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\graphics\render2D\simple2Drender.h">
+    <ClInclude Include="..\apengine\graphics\render2D\renderable2D.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\graphics\render2D\renderable2D.h">
+    <ClInclude Include="..\apengine\maths\MathUtils.h">
+      <Filter>apengine\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\batch2DRender.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\simple2DRender.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\sprite.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\staticSprite.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,7 +11,7 @@ public:
 	~Render2D ();
 
 protected:
-	virtual void submit(renderable2D* renderable) = 0;
-	virtual void flush() = 0;
+	virtual void addItem(renderable2D* renderable) = 0;
+	virtual void drawItems() = 0;
 		 
 };

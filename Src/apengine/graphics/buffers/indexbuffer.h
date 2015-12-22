@@ -5,6 +5,7 @@ class IndexBuffer
 {
 public:
 	IndexBuffer(GLushort* data, GLsizei count);
+	~IndexBuffer();
 
 	void bind();
 	void unbind() const;

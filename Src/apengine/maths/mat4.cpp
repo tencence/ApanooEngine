@@ -2,7 +2,7 @@
 
 mat4::mat4()
 {
-	for (int i = 0;i < 4 * 4;++i)
+	for (int i = 0; i < 4 * 4; ++i)
 	{
 		elements[i] = 0.0f;
 	}
@@ -10,7 +10,7 @@ mat4::mat4()
 
 mat4::mat4(float diagonal)
 {
-	for (int i = 0;i < 4 * 4;++i)
+	for (int i = 0; i < 4 * 4; ++i)
 	{
 		elements[i] = 0.0f;
 	}
@@ -24,12 +24,12 @@ mat4::mat4(float diagonal)
 mat4& mat4::multiply(const mat4& other)
 {
 	float data[16];
-	for (int y = 0;y < 4; ++y)
+	for (int y = 0; y < 4; ++y)
 	{
-		for (int x = 0;x < 4; ++x)
+		for (int x = 0; x < 4; ++x)
 		{
 			float sum = 0.0f;
-			for (int e = 0;e < 4;++e)
+			for (int e = 0; e < 4; ++e)
 			{
 				sum += elements[x + e * 4] * other.elements[e + y * 4];
 			}
@@ -46,7 +46,7 @@ mat4 mat4::identity()
 	return mat4(1.0f);
 }
 
-// 难点1
+// 难点1：正交视图矩阵
 mat4 mat4::orthographic(float left, float right, float bottom, float top, float near, float far)
 {
 	mat4 result(1.0f);
@@ -62,7 +62,7 @@ mat4 mat4::orthographic(float left, float right, float bottom, float top, float 
 	return result;
 }
 
-// 难点2
+// 难点2：透视视图矩阵
 mat4 mat4::perspective(float fov, float aspectRatio, float near, float far)
 {
 	mat4 result(1.0f);
@@ -82,6 +82,7 @@ mat4 mat4::perspective(float fov, float aspectRatio, float near, float far)
 	return result;
 }
 
+// 相对于物体当前位置进行平移
 mat4 mat4::translation(const vec3& translation)
 {
 	mat4 result(1.0f);
@@ -93,7 +94,7 @@ mat4 mat4::translation(const vec3& translation)
 	return result;
 }
 
-// 难点3
+// 难点3 ; 目前仅相对于当前坐标系原点旋转，不是相对于物体中心旋转
 mat4 mat4::rotation(float angle, const vec3& axis)
 {
 	mat4 result(1.0f);
@@ -123,6 +124,7 @@ mat4 mat4::rotation(float angle, const vec3& axis)
 	return result;
 }
 
+// 目前仅相对于当前坐标系原点放缩，不是相对于物体中心放缩
 mat4 mat4::scale(const vec3& scale)
 {
 	mat4 result(1.0f);
