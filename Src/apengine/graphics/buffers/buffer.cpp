@@ -1,9 +1,9 @@
 #include "buffer.h"
 
 Buffer::Buffer(GLfloat* data, GLsizei count, GLuint componentCount)
-	:m_ComponentCount(componentCount),m_Data(data),m_Count(count), m_BufferID(-1)
+	:m_ComponentCount(componentCount),m_Data(data),m_Count(count)
 {
-	
+	m_BufferID = 0;
 }
 
 void Buffer::init() 
@@ -17,9 +17,9 @@ void Buffer::init()
 
 void Buffer::bind()
 {
-	if (-1 == m_BufferID)
+	if (0 == m_BufferID)
 	{
-		init();
+		init(); // 待改进：迁移到构造方法出现错误
 	}
 	glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);  // bind
 }

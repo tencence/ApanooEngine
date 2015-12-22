@@ -1,9 +1,8 @@
 #include "vertexarray.h"
 
 VertexArray::VertexArray()
-	: m_ArrayID(-1)
 {
-	
+	m_ArrayID = 0;
 }
 
 VertexArray::~VertexArray()
@@ -29,9 +28,9 @@ void VertexArray::addBuffer(Buffer* buffer, GLuint index)
 
 void VertexArray::bind()
 {
-	if (-1 == m_ArrayID)
+	if (0 == m_ArrayID)
 	{
-		init();
+		init(); // 待改进：迁移到构造方法出现错误
 	}
 	glBindVertexArray(m_ArrayID);
 }

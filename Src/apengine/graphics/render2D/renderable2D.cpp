@@ -27,8 +27,14 @@ renderable2D::renderable2D(vec3 position, vec2 size, vec4 color, Shader& shader)
 	m_VertxArray->addBuffer(new Buffer(colors, 4 * 4, 4), 1);
 
 	// ห๗าýสýื้
-	GLushort indices[] = { 0, 1, 2, 2, 3, 0 };
-	m_IndexBuffer = new IndexBuffer(indices, 6);
+	m_Indices[0] = 0;
+	m_Indices[1] = 1;
+	m_Indices[2] = 2;
+
+	m_Indices[3] = 2;
+	m_Indices[4] = 3;
+	m_Indices[5] = 0;
+	m_IndexBuffer = new IndexBuffer(m_Indices, 6);
 }
 
 renderable2D::~renderable2D()

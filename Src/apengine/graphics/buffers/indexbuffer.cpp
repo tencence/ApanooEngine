@@ -1,16 +1,16 @@
 #include "indexbuffer.h"
 
 IndexBuffer::IndexBuffer(GLushort* data, GLsizei count)
-	:m_Count(count),m_Data(data), m_BufferID(-1)
+	:m_Count(count),m_Data(data)
 {
-
+	m_BufferID = 0;
 }
 
 void IndexBuffer::bind()
 {
-	if (-1 == m_BufferID)
+	if (0 == m_BufferID)
 	{
-		init();
+		init(); // 待改进：迁移到构造方法出现错误
 	}
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_BufferID);
 }

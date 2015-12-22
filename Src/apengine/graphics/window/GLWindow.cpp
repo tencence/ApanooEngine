@@ -122,10 +122,10 @@ BOOL GLWindow::CreateGlWnd(const char* title, int x, int y, int width, int heigh
 	{    // 不支持opengl4.X 还原为opengl 2.1
 		m_hRc = tempContext;
 	}
-	RECT rect;		 // 客户区大小
-	::GetClientRect(m_hWnd, &rect);
-	ResizeGLScene(rect.right - rect.left, rect.bottom - rect.top);  // 设置GL屏幕 (注意，这里只使用客户区计算)
-	//ResizeGLScene(width, height);
+	//RECT rect;		 // 客户区大小
+	//::GetClientRect(m_hWnd, &rect);
+	//ResizeGLScene(rect.right - rect.left, rect.bottom - rect.top);  // 设置GL屏幕 (注意，这里只使用客户区计算)
+	ResizeGLScene(width, height);
 
 	if (!initGL())   // 初始化opengl
 	{

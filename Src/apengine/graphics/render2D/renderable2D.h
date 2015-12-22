@@ -26,13 +26,15 @@ public:
 	inline const vec2& getSize() const { return m_Size; }
 	inline const vec4& getColor() const { return m_Color; }
 
-protected:
+public:
 	vec3 m_Position;  // 位置
 	vec2 m_Size;	  // 大小
 	vec4 m_Color;	  // 颜色
 
 	VertexArray* m_VertxArray;  // VAO
 	IndexBuffer* m_IndexBuffer; // IBO
+
+	GLushort m_Indices[6];      // 保留索引引用，解决渲染时IBO失效问题
 
 	Shader& m_Shader;
 };
