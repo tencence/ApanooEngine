@@ -1,9 +1,9 @@
 #include "buffer.h"
 
 Buffer::Buffer(GLfloat* data, GLsizei count, GLuint componentCount)
-	:m_ComponentCount(componentCount),m_Data(data),m_Count(count)
+	:m_ComponentCount(componentCount),m_Data(data),m_Count(count), m_BufferID(-1)
 {
-	m_BufferID = -1;
+	
 }
 
 void Buffer::init() 

@@ -43,6 +43,15 @@
     <ClCompile Include="..\apengine\graphics\buffers\indexbuffer.cpp">
       <Filter>apengine\graphics\buffers</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\render2D.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\simple2Drender.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\renderable2D.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\app\QApp.h">
@@ -102,6 +111,15 @@
     <ClInclude Include="..\apengine\graphics\buffers\indexbuffer.h">
       <Filter>apengine\graphics\buffers</Filter>
     </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\render2D.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\simple2Drender.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\renderable2D.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="apengine">
@@ -139,6 +157,9 @@
     </Filter>
     <Filter Include="apengine\graphics\buffers">
       <UniqueIdentifier>{0edb7ae4-889b-4912-905a-92eb07f3b4fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics\render2D">
+      <UniqueIdentifier>{a4e63e03-94f7-40cc-95a5-840cdac66400}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

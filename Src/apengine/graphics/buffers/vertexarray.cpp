@@ -1,8 +1,9 @@
 #include "vertexarray.h"
 
 VertexArray::VertexArray()
+	: m_ArrayID(-1)
 {
-	m_ArrayID = -1;
+	
 }
 
 VertexArray::~VertexArray()
@@ -18,6 +19,7 @@ void VertexArray::addBuffer(Buffer* buffer, GLuint index)
 	bind();
 	buffer->bind();
 
+	// index£ºlocation
 	glEnableVertexAttribArray(index);
 	glVertexAttribPointer(index, buffer->getComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
 
