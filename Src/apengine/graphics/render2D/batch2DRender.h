@@ -17,7 +17,9 @@ class Batch2DRender : public Render2D
 public:
 	Batch2DRender();
 	~Batch2DRender();
+	void begin();
 	void addItem(renderable2D* renderable) override;
+	void end();
 	void drawItems() override;
 
 private:
@@ -28,4 +30,6 @@ private:
 	GLuint m_VBO;
 	IndexBuffer* m_IBO; 
 	GLsizei m_IndexCount;
+
+	VertexData* m_Buffer;
 };

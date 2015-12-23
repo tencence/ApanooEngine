@@ -1,3 +1,4 @@
+// 用于simple render 绘制少量sprite
 #pragma once
 #include "renderable2D.h"
 #include "../../maths/maths.h"

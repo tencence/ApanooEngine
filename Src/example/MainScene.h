@@ -1,11 +1,11 @@
 #pragma once
 #include "../apengine/apengine.h"
 
-class TextureLoader;
-class ScreenShot;
-
 class StaticSprite;
 class Simple2DRender;
+
+class Batch2DRender;
+class Sprite;
 
 class MainScene : public GLWindow
 {
@@ -28,6 +28,8 @@ public:
 	HRESULT OnMouseMove(WPARAM wParam, LPARAM lParam) override;
 
 private:
-	Simple2DRender* render;
-	StaticSprite* sprite[10];
+	Simple2DRender* simpleRender;
+	StaticSprite* static_sprite[10];
+	Sprite* sprite[10];
+	Batch2DRender* batchRender;
 };

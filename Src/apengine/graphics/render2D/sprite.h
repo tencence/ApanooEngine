@@ -1,3 +1,4 @@
+// 用于batch render绘制大量sprite
 #pragma once
 #include "renderable2D.h"
 

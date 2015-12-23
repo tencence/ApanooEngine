@@ -10,6 +10,9 @@
 #include "../apengine/graphics/render2D/renderable2D.h"
 
 #include "../apengine/graphics/render2D/staticSprite.h"
+#include "../apengine/graphics/render2D/sprite.h"
+
+#include "../apengine/graphics/render2D/batch2DRender.h"
 
 
 MainScene::MainScene()
@@ -44,12 +47,19 @@ BOOL MainScene::initGL(GLvoid)
 	// enable shader
 	shader.enable();
 	
-	// render layer
-	render = new Simple2DRender();
+	// simple render layer
+	simpleRender = new Simple2DRender();
 
-	// sprites
-	sprite[0] = new StaticSprite(1, 1, 3, 3, vec4(1, 0, 1, 1), shader);
-	sprite[1] = new StaticSprite(4, 4, 1, 1, vec4(1, 0, 0, 1), shader);
+	// batch render layer
+	batchRender = new Batch2DRender();
+
+	// static sprites
+	static_sprite[0] = new StaticSprite(1, 1, 3, 3, vec4(1, 0, 1, 1), shader);
+	static_sprite[1] = new StaticSprite(4, 4, 1, 1, vec4(1, 0, 0, 1), shader);
+
+	// sprite
+	sprite[0] = new Sprite(0, 0, 2, 2, vec4(0, 1, 0, 1));
+	sprite[1] = new Sprite(0, 2, 2, 2, vec4(0, 0, 1, 1));
 	
 	// math
 	mat4 ortho = mat4::orthographic(0.0f, 8.0f, 0.0f, 6.0f, -1.0f, 1.0f);
@@ -67,9 +77,15 @@ BOOL MainScene::DrawGL(GLvoid)
 	glLoadIdentity(); // 重置当前矩阵
 	///////////////////////////////绘制////////////////////////////////////////
 
-	render->addItem(sprite[0]);
-	render->addItem(sprite[1]);
-	render->drawItems();
+	//simpleRender->addItem(static_sprite[0]);
+	//simpleRender->addItem(static_sprite[1]);
+	//simpleRender->drawItems();
+
+	batchRender->begin();
+	batchRender->addItem(sprite[0]);
+	batchRender->addItem(sprite[1]);
+	batchRender->end();
+	batchRender->drawItems();
 
 	//////////////////////////////////////////////////////////////////////////
 
