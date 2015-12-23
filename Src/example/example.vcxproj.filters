@@ -138,6 +138,9 @@
     <ClInclude Include="..\apengine\graphics\render2D\staticSprite.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
+    <ClInclude Include="..\apengine\utils\timer.h">
+      <Filter>apengine\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="apengine">

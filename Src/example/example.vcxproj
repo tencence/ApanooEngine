@@ -82,6 +82,10 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -137,6 +141,7 @@
     <ClInclude Include="..\apengine\maths\vec3.h" />
     <ClInclude Include="..\apengine\maths\vec4.h" />
     <ClInclude Include="..\apengine\utils\FileUtils.h" />
+    <ClInclude Include="..\apengine\utils\timer.h" />
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MainScene.h" />

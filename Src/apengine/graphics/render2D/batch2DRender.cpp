@@ -24,24 +24,32 @@ void Batch2DRender::addItem(renderable2D* renderable)
 	const vec2& size = renderable->getSize();
 	const vec4& color = renderable->getColor();
 	
+	int r = color.x * 255.0f;
+	int g = color.y * 255.0f;
+	int b = color.z * 255.0f;
+	int a = color.w * 255.0f;
+
+	// ¼ÆËãÑÕÉ«
+	unsigned int c = a << 24 | b << 16 | g << 8 | r;
+
 	// point 1
 	m_Buffer->vertex = position;
-	m_Buffer->color = color;
+	m_Buffer->color = c;
 	m_Buffer++;
 	
 	// point 2
 	m_Buffer->vertex = vec3(position.x, position.y + size.y, position.z);
-	m_Buffer->color = color;
+	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 3
 	m_Buffer->vertex = vec3(position.x + size.x, position.y + size.y, position.z);
-	m_Buffer->color = color;
+	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 4
 	m_Buffer->vertex = vec3(position.x + size.x, position.y, position.z);
-	m_Buffer->color = color;
+	m_Buffer->color = c;
 	m_Buffer++;
 
 	m_IndexCount += 6;
@@ -90,7 +98,7 @@ void Batch2DRender::init()
 	glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDER_VERTEX_SIZE, (const GLvoid*)0);
 
 	// ÑÕÉ«
-	glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_FLOAT, GL_FALSE, RENDER_VERTEX_SIZE, (const GLvoid*)(3 * sizeof(GLfloat)));
+	glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::color)));
 
 	// unbind buffer
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

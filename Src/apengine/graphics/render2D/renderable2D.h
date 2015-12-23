@@ -13,7 +13,8 @@
 struct VertexData
 {
 	vec3 vertex;
-	vec4 color;
+	// vec4 color;
+	unsigned int color;
 };
 
 class renderable2D

@@ -19,7 +19,8 @@
 #define BATCH_RENDER 1 // 1 for batch render and 0 for simple render
 MainScene::MainScene()
 {
-	
+	m_Time = 0;
+	m_Frames = 0;
 }
 
 MainScene::~MainScene()
@@ -110,6 +111,16 @@ BOOL MainScene::DrawGL(GLvoid)
 	//////////////////////////////////////////////////////////////////////////
 
 	glFlush(); // Ë¢ÐÂ
+
+	// timer
+	m_Frames++;
+	if (m_Timer.elapsed() - m_Time > 1.0f)
+	{
+		m_Time += 1.0f;
+		int frames = m_Frames;
+		m_Frames = 0;
+	}
+
 	return TRUE;
 }
 

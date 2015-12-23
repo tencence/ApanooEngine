@@ -2,6 +2,7 @@
 #pragma once
 #include "render2D.h"
 #include "../buffers/indexbuffer.h"
+#include <cstddef>
 
 #define RENDER_MAX_SPRITES  60000									// 绘制精灵个数限制
 #define RENDER_VERTEX_SIZE  sizeof(VertexData)						// 顶点数据大小

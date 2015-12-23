@@ -1,6 +1,7 @@
 #pragma once
 #include "../apengine/apengine.h"
 #include <vector>
+#include "../apengine/utils/timer.h"
 
 class Render2D;
 class renderable2D;
@@ -28,4 +29,7 @@ public:
 private:
 	Render2D* render;
 	std::vector<renderable2D*> m_sprites; // ¾«Áé×é
+	Timer m_Timer;
+	float m_Time;
+	unsigned int m_Frames;
 };
