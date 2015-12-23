@@ -20,7 +20,7 @@ BOOL AppDelegate::InitInstance()
 	}
 	m_pMainWnd = (LPVOID)pMainWnd;  // ±£ÁôÒýÓÃ
 
-	pMainWnd->CreateGlWnd("ApEngine", 200, 100, 800, 600); 
+	pMainWnd->CreateGlWnd("ApEngine", 200, 100, 960, 540); 
 	pMainWnd->ShowWindow(SW_SHOW);
 	pMainWnd->UpdateWindow();
 

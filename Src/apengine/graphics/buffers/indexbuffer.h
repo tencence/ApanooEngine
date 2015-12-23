@@ -4,7 +4,7 @@
 class IndexBuffer
 {
 public:
-	IndexBuffer(GLushort* data, GLsizei count);
+	IndexBuffer(GLuint* data, GLsizei count);
 	~IndexBuffer();
 
 	void bind();
@@ -18,5 +18,5 @@ private:
 
 	GLuint m_BufferID;
 	GLuint m_Count;
-	GLushort* m_Data;
+	GLuint* m_Data;
 };

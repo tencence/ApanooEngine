@@ -1,11 +1,9 @@
 #pragma once
 #include "../apengine/apengine.h"
+#include <vector>
 
-class StaticSprite;
-class Simple2DRender;
-
-class Batch2DRender;
-class Sprite;
+class Render2D;
+class renderable2D;
 
 class MainScene : public GLWindow
 {
@@ -28,8 +26,6 @@ public:
 	HRESULT OnMouseMove(WPARAM wParam, LPARAM lParam) override;
 
 private:
-	Simple2DRender* simpleRender;
-	StaticSprite* static_sprite[10];
-	Sprite* sprite[10];
-	Batch2DRender* batchRender;
+	Render2D* render;
+	std::vector<renderable2D*> m_sprites; // ¾«Áé×é
 };

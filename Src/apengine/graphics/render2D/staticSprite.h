@@ -19,5 +19,5 @@ private:
 	IndexBuffer* m_IndexBuffer;
 	Shader& m_Shader;
 
-	GLushort m_Indices[6];
+	GLuint m_Indices[6];
 };

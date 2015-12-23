@@ -14,9 +14,12 @@
 
 #include "../apengine/graphics/render2D/batch2DRender.h"
 
+#include <time.h>
 
+#define BATCH_RENDER 1 // 1 for batch render and 0 for simple render
 MainScene::MainScene()
 {
+	
 }
 
 MainScene::~MainScene()
@@ -46,23 +49,35 @@ BOOL MainScene::initGL(GLvoid)
 	
 	// enable shader
 	shader.enable();
-	
-	// simple render layer
-	simpleRender = new Simple2DRender();
 
-	// batch render layer
-	batchRender = new Batch2DRender();
+#if BATCH_RENDER
+	render = new Batch2DRender();
+#else
+	render = new Simple2DRender();
+#endif
 
-	// static sprites
-	static_sprite[0] = new StaticSprite(1, 1, 3, 3, vec4(1, 0, 1, 1), shader);
-	static_sprite[1] = new StaticSprite(4, 4, 1, 1, vec4(1, 0, 0, 1), shader);
+	// sprites
+	srand(time(NULL)); // 随机种子
+	for (float y = 0; y < 9; y += 0.05)
+	{
+		for (float x = 0; x < 16; x += 0.05)
+		{
+			m_sprites.push_back(new 
+#if BATCH_RENDER // batch render
+				Sprite
+#else  // simple render
+			StaticSprite
+#endif
+				(x, y, 0.04f, 0.04f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)
+#if !BATCH_RENDER
+					, shader
+#endif
+					));
+		}
+	}
 
-	// sprite
-	sprite[0] = new Sprite(0, 0, 2, 2, vec4(0, 1, 0, 1));
-	sprite[1] = new Sprite(0, 2, 2, 2, vec4(0, 0, 1, 1));
-	
 	// math
-	mat4 ortho = mat4::orthographic(0.0f, 8.0f, 0.0f, 6.0f, -1.0f, 1.0f);
+	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 	shader.setUniformMat4("pr_matrix", ortho);
 	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
 	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
@@ -77,16 +92,21 @@ BOOL MainScene::DrawGL(GLvoid)
 	glLoadIdentity(); // 重置当前矩阵
 	///////////////////////////////绘制////////////////////////////////////////
 
-	//simpleRender->addItem(static_sprite[0]);
-	//simpleRender->addItem(static_sprite[1]);
-	//simpleRender->drawItems();
-
-	batchRender->begin();
-	batchRender->addItem(sprite[0]);
-	batchRender->addItem(sprite[1]);
-	batchRender->end();
-	batchRender->drawItems();
-
+	// batch render and simple render 
+#if BATCH_RENDER // batch render
+	auto renderer = (Batch2DRender*)render;
+	renderer->begin();
+#else // simple render
+	auto renderer = (Simple2DRender*)render;
+#endif
+	for (int i = 0;i < m_sprites.size(); i++)
+	{
+		renderer->addItem(m_sprites[i]);
+	}
+#if BATCH_RENDER
+	renderer->end();
+#endif
+	renderer->drawItems(); // draw all items
 	//////////////////////////////////////////////////////////////////////////
 
 	glFlush(); // 刷新
@@ -112,7 +132,7 @@ HRESULT MainScene::OnMouseMove(WPARAM wParam, LPARAM lParam)
 {
 	double x = LOWORD(lParam); // 鼠标x坐标
 	double y = HIWORD(lParam); // 鼠标y坐标
-	shader.setUniform2f("light_pos", vec2((float)(x * 8.0f / (float)this->GetWidth()), (float)(6.0f - y * 6.0f / (float)this->GetHeight())));
+	shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / (float)this->GetWidth()), (float)(9.0f - y * 9.0f / (float)this->GetHeight())));
 	return true;
 }
 

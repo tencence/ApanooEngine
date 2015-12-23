@@ -34,8 +34,6 @@ StaticSprite::StaticSprite(float x, float y, float width, float height, vec4& co
 	m_Indices[3] = 2;
 	m_Indices[4] = 3;
 	m_Indices[5] = 0;
-	//GLushort indices[] = {0, 1, 2, 2, 3, 0};
-	//m_Indices = indices;
 	m_IndexBuffer = new IndexBuffer(m_Indices, 6);
 }
 

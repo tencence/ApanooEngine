@@ -1,16 +1,16 @@
-// 同时渲染多个物体
+// 同时渲染多个物体 <- 高效绘制
 #pragma once
 #include "render2D.h"
 #include "../buffers/indexbuffer.h"
 
-#define RENDER_MAX_SPRITES  10000
-#define RENDER_VERTEX_SIZE  sizeof(VertexData)
-#define RENDER_SPRITE_SIZE  RENDER_VERTEX_SIZE * 4
-#define RENDER_BUFFER_SIZE  RENDER_SPRITE_SIZE * RENDER_MAX_SPRITES
-#define RENDER_INDICES_SIZE RENDER_MAX_SPRITES * 6
+#define RENDER_MAX_SPRITES  60000									// 绘制精灵个数限制
+#define RENDER_VERTEX_SIZE  sizeof(VertexData)						// 顶点数据大小
+#define RENDER_SPRITE_SIZE  RENDER_VERTEX_SIZE * 4					// 精灵尺寸
+#define RENDER_BUFFER_SIZE  RENDER_SPRITE_SIZE * RENDER_MAX_SPRITES // buffer大小
+#define RENDER_INDICES_SIZE RENDER_MAX_SPRITES * 6					// 索引数量限制
 
-#define SHADER_VERTEX_INDEX 0    // 顶点location
-#define SHADER_COLOR_INDEX  1    // 颜色location
+#define SHADER_VERTEX_INDEX 0										// 顶点location
+#define SHADER_COLOR_INDEX  1										// 颜色location
 
 class Batch2DRender : public Render2D
 {

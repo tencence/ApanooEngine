@@ -25,7 +25,7 @@ void Simple2DRender::drawItems()
 
 		// 移到物体对应位置
 		sprite->getShader().setUniformMat4("ml_matrix", mat4::translation(sprite->getPosition()));
-		glDrawElements(GL_TRIANGLES, sprite->getIBO()->getCount(), GL_UNSIGNED_SHORT, 0);
+		glDrawElements(GL_TRIANGLES, sprite->getIBO()->getCount(), GL_UNSIGNED_INT, 0);
 
 		sprite->getIBO()->unbind();
 		sprite->getVAO()->unbind();

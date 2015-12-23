@@ -60,7 +60,7 @@ void Batch2DRender::drawItems()
 	m_IBO->bind();
 
 	// »æÖÆ
-	glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_SHORT, NULL);
+	glDrawElements(GL_TRIANGLES, m_IndexCount, GL_UNSIGNED_INT, NULL);
 
 	m_IBO->unbind();
 	glBindVertexArray(0);
@@ -96,7 +96,7 @@ void Batch2DRender::init()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	// ×ÜË÷Òý
-	GLushort indices[RENDER_INDICES_SIZE];
+	GLuint* indices = new GLuint[RENDER_INDICES_SIZE];
 	
 	int offset = 0;
 	for (int i = 0; i < RENDER_INDICES_SIZE; i += 6)
