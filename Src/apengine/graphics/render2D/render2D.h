@@ -10,8 +10,10 @@ public:
 	Render2D ();
 	~Render2D ();
 
-protected:
+public:
+	virtual void begin() {}
 	virtual void addItem(renderable2D* renderable) = 0;
+	virtual void end() {}
 	virtual void drawItems() = 0;
 		 
 };

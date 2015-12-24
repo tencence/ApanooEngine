@@ -18,9 +18,9 @@ class Batch2DRender : public Render2D
 public:
 	Batch2DRender();
 	~Batch2DRender();
-	void begin();
+	void begin() override;
 	void addItem(renderable2D* renderable) override;
-	void end();
+	void end() override;
 	void drawItems() override;
 
 private:

@@ -14,9 +14,10 @@
 
 #include "../apengine/graphics/render2D/batch2DRender.h"
 
+#include "../apengine/graphics/render2D/tilelayer.h"
+
 #include <time.h>
 
-#define BATCH_RENDER 1 // 1 for batch render and 0 for simple render
 MainScene::MainScene()
 {
 	m_Time = 0;
@@ -29,6 +30,7 @@ MainScene::~MainScene()
 }
 
 Shader shader("shader/triangles.vert", "shader/triangles.frag");
+Shader shader2("shader/triangles.vert", "shader/triangles.frag");
 
 BOOL MainScene::initGL(GLvoid)
 {
@@ -48,40 +50,27 @@ BOOL MainScene::initGL(GLvoid)
 
 	/////////////////////////////初始化////////////////////////////////////////
 	
-	// enable shader
+	// shader 1
 	shader.enable();
+	shader.setUniform2f("light_pos", vec2(-8.0f, -3.0f));
+	
+	// shader 2
+	shader2.enable();
+	shader2.setUniform2f("light_pos", vec2(4.0f, 2.0f));
 
-#if BATCH_RENDER
-	render = new Batch2DRender();
-#else
-	render = new Simple2DRender();
-#endif
-
-	// sprites
-	srand(time(NULL)); // 随机种子
-	for (float y = 0; y < 9; y += 0.05)
+	// tile layer
+	m_TileLayer = new TileLayer(&shader);
+	for (float y = -9.0f; y < 9.0f; y += 0.1f)
 	{
-		for (float x = 0; x < 16; x += 0.05)
+		for (float x = -16.0f; x < 16.0f; x += 0.1f)
 		{
-			m_sprites.push_back(new 
-#if BATCH_RENDER // batch render
-				Sprite
-#else  // simple render
-			StaticSprite
-#endif
-				(x, y, 0.04f, 0.04f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)
-#if !BATCH_RENDER
-					, shader
-#endif
-					));
+			m_TileLayer->addItem(new Sprite(x, y, 0.09f, 0.09f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
 		}
 	}
 
-	// math
-	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
-	shader.setUniformMat4("pr_matrix", ortho);
-	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
-	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
+	// layer 2
+	m_layer2 = new TileLayer(&shader2);
+	m_layer2->addItem(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
 
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;
@@ -93,21 +82,9 @@ BOOL MainScene::DrawGL(GLvoid)
 	glLoadIdentity(); // 重置当前矩阵
 	///////////////////////////////绘制////////////////////////////////////////
 
-	// batch render and simple render 
-#if BATCH_RENDER // batch render
-	auto renderer = (Batch2DRender*)render;
-	renderer->begin();
-#else // simple render
-	auto renderer = (Simple2DRender*)render;
-#endif
-	for (int i = 0;i < m_sprites.size(); i++)
-	{
-		renderer->addItem(m_sprites[i]);
-	}
-#if BATCH_RENDER
-	renderer->end();
-#endif
-	renderer->drawItems(); // draw all items
+	m_TileLayer->render();
+	m_layer2->render();
+
 	//////////////////////////////////////////////////////////////////////////
 
 	glFlush(); // 刷新
@@ -143,7 +120,15 @@ HRESULT MainScene::OnMouseMove(WPARAM wParam, LPARAM lParam)
 {
 	double x = LOWORD(lParam); // 鼠标x坐标
 	double y = HIWORD(lParam); // 鼠标y坐标
-	shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / (float)this->GetWidth()), (float)(9.0f - y * 9.0f / (float)this->GetHeight())));
+
+	// shader 1
+	shader.enable();
+	//shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / (float)this->GetWidth() - 16.0f), (float)(9.0f - y * 18.0f / (float)this->GetHeight())));
+	shader.setUniform2f("light_pos", vec2(-8, -3));
+	
+	// shader 2
+	shader2.enable();
+	shader2.setUniform2f("light_pos", vec2((float)(x * 32.0f / (float)this->GetWidth() - 16.0f), (float)(9.0f - y * 18.0f / (float)this->GetHeight())));
 	return true;
 }
 

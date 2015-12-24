@@ -61,6 +61,12 @@
     <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\layer.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\app\QApp.h">
@@ -140,6 +146,12 @@
     </ClInclude>
     <ClInclude Include="..\apengine\utils\timer.h">
       <Filter>apengine\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\layer.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h">
+      <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

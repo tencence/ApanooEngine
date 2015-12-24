@@ -5,6 +5,7 @@
 
 class Render2D;
 class renderable2D;
+class TileLayer;
 
 class MainScene : public GLWindow
 {
@@ -32,4 +33,6 @@ private:
 	Timer m_Timer;
 	float m_Time;
 	unsigned int m_Frames;
+	TileLayer* m_TileLayer;
+	TileLayer* m_layer2;
 };
