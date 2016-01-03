@@ -28,9 +28,6 @@
     <ClCompile Include="AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="MainScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\apengine\graphics\shader\shader.cpp">
       <Filter>apengine\graphics\shader</Filter>
     </ClCompile>
@@ -66,6 +63,18 @@
     </ClCompile>
     <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp">
       <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene3D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene2D.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render3D\Vertex.cpp">
+      <Filter>apengine\graphics\render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render3D\Mesh.cpp">
+      <Filter>apengine\graphics\render3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,9 +112,6 @@
       <Filter>apengine\maths</Filter>
     </ClInclude>
     <ClInclude Include="AppDelegate.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="MainScene.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\apengine\utils\FileUtils.h">
@@ -153,6 +159,18 @@
     <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
+    <ClInclude Include="MainScene3D.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene2D.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render3D\Vertex.h">
+      <Filter>apengine\graphics\render3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render3D\Mesh.h">
+      <Filter>apengine\graphics\render3D</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="apengine">
@@ -193,6 +211,9 @@
     </Filter>
     <Filter Include="apengine\graphics\render2D">
       <UniqueIdentifier>{a4e63e03-94f7-40cc-95a5-840cdac66400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics\render3D">
+      <UniqueIdentifier>{d43277c0-3692-41c0-aef3-6ee5abad54d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

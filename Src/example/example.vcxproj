@@ -109,6 +109,8 @@
     <ClCompile Include="..\apengine\graphics\render2D\sprite.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp" />
+    <ClCompile Include="..\apengine\graphics\render3D\Mesh.cpp" />
+    <ClCompile Include="..\apengine\graphics\render3D\Vertex.cpp" />
     <ClCompile Include="..\apengine\graphics\shader\shader.cpp" />
     <ClCompile Include="..\apengine\graphics\window\GLWindow.cpp" />
     <ClCompile Include="..\apengine\graphics\window\QWnd.cpp" />
@@ -118,7 +120,8 @@
     <ClCompile Include="..\apengine\maths\vec4.cpp" />
     <ClCompile Include="AppDelegate.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="MainScene2D.cpp" />
+    <ClCompile Include="MainScene3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\apengine.h" />
@@ -134,6 +137,8 @@
     <ClInclude Include="..\apengine\graphics\render2D\sprite.h" />
     <ClInclude Include="..\apengine\graphics\render2D\staticSprite.h" />
     <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h" />
+    <ClInclude Include="..\apengine\graphics\render3D\Mesh.h" />
+    <ClInclude Include="..\apengine\graphics\render3D\Vertex.h" />
     <ClInclude Include="..\apengine\graphics\shader\shader.h" />
     <ClInclude Include="..\apengine\graphics\window\GLWindow.h" />
     <ClInclude Include="..\apengine\graphics\window\QWnd.h" />
@@ -148,7 +153,8 @@
     <ClInclude Include="..\apengine\utils\timer.h" />
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="Main.h" />
-    <ClInclude Include="MainScene.h" />
+    <ClInclude Include="MainScene2D.h" />
+    <ClInclude Include="MainScene3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

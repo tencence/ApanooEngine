@@ -7,11 +7,11 @@ class Render2D;
 class renderable2D;
 class TileLayer;
 
-class MainScene : public GLWindow
+class MainScene2D : public GLWindow
 {
 public:
-	MainScene();
-	~MainScene();
+	MainScene2D();
+	~MainScene2D();
 
 	// ≥ı ºªØ
 	BOOL initGL(GLvoid) override;

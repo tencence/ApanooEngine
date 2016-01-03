@@ -1,4 +1,4 @@
-#include "MainScene.h"
+#include "MainScene2D.h"
 #include <math.h>
 #include <iostream>
 
@@ -18,13 +18,13 @@
 
 #include <time.h>
 
-MainScene::MainScene()
+MainScene2D::MainScene2D()
 {
 	m_Time = 0;
 	m_Frames = 0;
 }
 
-MainScene::~MainScene()
+MainScene2D::~MainScene2D()
 {
 
 }
@@ -32,7 +32,7 @@ MainScene::~MainScene()
 Shader shader("shader/triangles.vert", "shader/triangles.frag");
 Shader shader2("shader/triangles.vert", "shader/triangles.frag");
 
-BOOL MainScene::initGL(GLvoid)
+BOOL MainScene2D::initGL(GLvoid)
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);
@@ -76,7 +76,7 @@ BOOL MainScene::initGL(GLvoid)
 	return TRUE;
 }
 
-BOOL MainScene::DrawGL(GLvoid)
+BOOL MainScene2D::DrawGL(GLvoid)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);     // 清除颜色和深度缓存
 	glLoadIdentity(); // 重置当前矩阵
@@ -101,7 +101,7 @@ BOOL MainScene::DrawGL(GLvoid)
 	return TRUE;
 }
 
-BOOL MainScene::UpdateGL(GLvoid)
+BOOL MainScene2D::UpdateGL(GLvoid)
 {
 	if (keyDown(key_f1))
 	{
@@ -111,12 +111,12 @@ BOOL MainScene::UpdateGL(GLvoid)
 	return TRUE;
 }
 
-GLvoid MainScene::DestroyGL(GLvoid)
+GLvoid MainScene2D::DestroyGL(GLvoid)
 {
 
 }
 
-HRESULT MainScene::OnMouseMove(WPARAM wParam, LPARAM lParam)
+HRESULT MainScene2D::OnMouseMove(WPARAM wParam, LPARAM lParam)
 {
 	double x = LOWORD(lParam); // 鼠标x坐标
 	double y = HIWORD(lParam); // 鼠标y坐标

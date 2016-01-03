@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
-#include "MainScene.h"
+#include "MainScene2D.h"
+#include "MainScene3D.h"
 
 AppDelegate::AppDelegate()
 {
@@ -13,14 +14,14 @@ AppDelegate::~AppDelegate()
 
 BOOL AppDelegate::InitInstance()
 {
-	MainScene *pMainWnd = new MainScene();
+	MainScene3D *pMainWnd = new MainScene3D();
 	if (NULL == pMainWnd)
 	{
 		return 0; // 窗口创建失败
 	}
 	m_pMainWnd = (LPVOID)pMainWnd;  // 保留引用
 
-	pMainWnd->CreateGlWnd("ApEngine", 200, 100, 960, 540); 
+	pMainWnd->CreateGlWnd("ApEngine3D", 200, 100, 960, 540); 
 	pMainWnd->ShowWindow(SW_SHOW);
 	pMainWnd->UpdateWindow();
 
