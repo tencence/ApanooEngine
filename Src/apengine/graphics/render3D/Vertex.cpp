@@ -1,3 +1,3 @@
 #include "Vertex.h"
 
-static int SIZE = 3;
+int Vertex::SIZE = 3;

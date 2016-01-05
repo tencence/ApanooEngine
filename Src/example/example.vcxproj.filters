@@ -58,12 +58,6 @@
     <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
-    <ClCompile Include="..\apengine\graphics\render2D\layer.cpp">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClCompile>
-    <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClCompile>
     <ClCompile Include="MainScene3D.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -75,6 +69,12 @@
     </ClCompile>
     <ClCompile Include="..\apengine\graphics\render3D\Mesh.cpp">
       <Filter>apengine\graphics\render3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\layer.cpp">
+      <Filter>apengine\graphics\render2D\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp">
+      <Filter>apengine\graphics\render2D\layers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -153,12 +153,6 @@
     <ClInclude Include="..\apengine\utils\timer.h">
       <Filter>apengine\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\graphics\render2D\layer.h">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClInclude>
-    <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClInclude>
     <ClInclude Include="MainScene3D.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -170,6 +164,12 @@
     </ClInclude>
     <ClInclude Include="..\apengine\graphics\render3D\Mesh.h">
       <Filter>apengine\graphics\render3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\layer.h">
+      <Filter>apengine\graphics\render2D\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h">
+      <Filter>apengine\graphics\render2D\layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +214,9 @@
     </Filter>
     <Filter Include="apengine\graphics\render3D">
       <UniqueIdentifier>{d43277c0-3692-41c0-aef3-6ee5abad54d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="apengine\graphics\render2D\layers">
+      <UniqueIdentifier>{05bb2847-6554-4f6a-b741-4019cf858a3e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

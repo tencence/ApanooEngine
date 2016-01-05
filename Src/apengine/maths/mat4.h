@@ -28,8 +28,6 @@ struct mat4
 		return vec4(elements[index + 1], elements[index + 2], elements[index + 3], elements[index + 4]);
 	}
 
-	// 相乘
-	mat4& multiply(const mat4& other);
 
 	// 单位矩阵
 	static mat4 identity();
@@ -49,8 +47,14 @@ struct mat4
 	// 放缩矩阵
 	static mat4 scale(const vec3& scale);
 
+	// 相乘
+	mat4& multiply(const mat4& other);
+	vec3 multiply(const vec3& vec) const;
+	vec4 multiply(const vec4& vec) const; 
 	// 操作符
 	friend mat4 operator*(mat4 left, const mat4& right);
+	friend vec3 operator*(const mat4& left, const vec3& right);
+	friend vec4 operator*(const mat4& left, const vec4& right);
 	mat4 operator*=(const mat4& other);
 }; 
 

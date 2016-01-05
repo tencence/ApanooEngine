@@ -29,10 +29,12 @@ void Layer::render()
 
 	// 遍历绘制所有item
 	m_Render->begin();
+
 	for (renderable2D* renderable:m_Renderables)
 	{
 		m_Render->addItem(renderable); // 添加item
 	}
+
 	m_Render->end();
 	m_Render->drawItems(); // 绘制item
 }

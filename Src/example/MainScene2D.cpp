@@ -17,6 +17,7 @@
 #include "../apengine/graphics/render2D/tilelayer.h"
 
 #include <time.h>
+#define TEST_50K 0
 
 MainScene2D::MainScene2D()
 {
@@ -60,6 +61,7 @@ BOOL MainScene2D::initGL(GLvoid)
 
 	// tile layer
 	m_TileLayer = new TileLayer(&shader);
+#if TEST_50K
 	for (float y = -9.0f; y < 9.0f; y += 0.1f)
 	{
 		for (float x = -16.0f; x < 16.0f; x += 0.1f)
@@ -67,7 +69,14 @@ BOOL MainScene2D::initGL(GLvoid)
 			m_TileLayer->addItem(new Sprite(x, y, 0.09f, 0.09f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
 		}
 	}
-
+#else
+	Sprite* button = new Sprite(-15.0f, 5.0f, 6, 3, vec4(1, 1, 1, 1));
+	m_TileLayer->addItem(button);
+	m_TileLayer->push(button->getPosition());
+	m_TileLayer->addItem(new Sprite(0.5f, 0.5f, 5, 2, vec4(1, 0, 1, 1)));
+	m_TileLayer->pop();
+#endif
+	
 	// layer 2
 	m_layer2 = new TileLayer(&shader2);
 	m_layer2->addItem(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
@@ -83,7 +92,7 @@ BOOL MainScene2D::DrawGL(GLvoid)
 	///////////////////////////////»æÖÆ////////////////////////////////////////
 
 	m_TileLayer->render();
-	m_layer2->render();
+	//m_layer2->render();
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -123,8 +132,8 @@ HRESULT MainScene2D::OnMouseMove(WPARAM wParam, LPARAM lParam)
 
 	// shader 1
 	shader.enable();
-	//shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / (float)this->GetWidth() - 16.0f), (float)(9.0f - y * 18.0f / (float)this->GetHeight())));
-	shader.setUniform2f("light_pos", vec2(-8, -3));
+	shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / (float)this->GetWidth() - 16.0f), (float)(9.0f - y * 18.0f / (float)this->GetHeight())));
+	//shader.setUniform2f("light_pos", vec2(-8, -3));
 	
 	// shader 2
 	shader2.enable();

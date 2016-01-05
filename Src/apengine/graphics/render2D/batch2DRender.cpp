@@ -32,23 +32,23 @@ void Batch2DRender::addItem(renderable2D* renderable)
 	// 计算颜色
 	unsigned int c = a << 24 | b << 16 | g << 8 | r;
 
-	// point 1
-	m_Buffer->vertex = position;
+	// point 1 : 从变换矩阵栈中的当前矩阵计算真实位置
+	m_Buffer->vertex = *m_TransformationBack * position;
 	m_Buffer->color = c;
 	m_Buffer++;
 	
 	// point 2
-	m_Buffer->vertex = vec3(position.x, position.y + size.y, position.z);
+	m_Buffer->vertex = *m_TransformationBack * vec3(position.x, position.y + size.y, position.z);
 	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 3
-	m_Buffer->vertex = vec3(position.x + size.x, position.y + size.y, position.z);
+	m_Buffer->vertex = *m_TransformationBack * vec3(position.x + size.x, position.y + size.y, position.z);
 	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 4
-	m_Buffer->vertex = vec3(position.x + size.x, position.y, position.z);
+	m_Buffer->vertex = *m_TransformationBack * vec3(position.x + size.x, position.y, position.z);
 	m_Buffer->color = c;
 	m_Buffer++;
 

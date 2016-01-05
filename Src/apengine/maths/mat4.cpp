@@ -41,6 +41,25 @@ mat4& mat4::multiply(const mat4& other)
 	return *this;
 }
 
+vec3 mat4::multiply(const vec3& vec) const
+{
+	return vec3(
+			columns[0].x * vec.x + columns[1].x * vec.y + columns[2].x * vec.z + columns[3].x,
+			columns[0].y * vec.x + columns[1].y * vec.y + columns[2].y * vec.z + columns[3].y,
+			columns[0].z * vec.x + columns[1].z * vec.y + columns[2].z * vec.z + columns[3].z
+		);
+}
+
+vec4 mat4::multiply(const vec4& vec) const
+{
+	return vec4(
+		columns[0].x * vec.x + columns[1].x * vec.y + columns[2].x * vec.z + columns[3].x * vec.w,
+		columns[0].y * vec.x + columns[1].y * vec.y + columns[2].y * vec.z + columns[3].y * vec.w,
+		columns[0].z * vec.x + columns[1].z * vec.y + columns[2].z * vec.z + columns[3].z * vec.w,
+		columns[0].w * vec.x + columns[1].w * vec.y + columns[2].w * vec.z + columns[3].w * vec.w
+		);
+}
+
 mat4 mat4::identity()
 {
 	return mat4(1.0f);
@@ -147,3 +166,12 @@ mat4 operator*(mat4 left, const mat4& right)
 	return left.multiply(right);
 }
 
+vec3 operator*(const mat4& left, const vec3& right)
+{
+	return left.multiply(right);
+}
+
+vec4 operator*(const mat4& left, const vec4& right)
+{
+	return left.multiply(right);
+}
