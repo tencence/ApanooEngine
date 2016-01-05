@@ -103,6 +103,7 @@
     <ClCompile Include="..\apengine\graphics\buffers\indexbuffer.cpp" />
     <ClCompile Include="..\apengine\graphics\buffers\vertexarray.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\batch2DRender.cpp" />
+    <ClCompile Include="..\apengine\graphics\render2D\group.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\layer.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\render2D.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\renderable2D.cpp" />
@@ -131,6 +132,7 @@
     <ClInclude Include="..\apengine\graphics\buffers\indexbuffer.h" />
     <ClInclude Include="..\apengine\graphics\buffers\vertexarray.h" />
     <ClInclude Include="..\apengine\graphics\render2D\batch2DRender.h" />
+    <ClInclude Include="..\apengine\graphics\render2D\group.h" />
     <ClInclude Include="..\apengine\graphics\render2D\layer.h" />
     <ClInclude Include="..\apengine\graphics\render2D\render2D.h" />
     <ClInclude Include="..\apengine\graphics\render2D\renderable2D.h" />

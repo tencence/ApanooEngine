@@ -11,8 +11,8 @@ public:
 	~Simple2DRender();
 
 public:
-	void addItem(renderable2D* renderable) override;
-	void drawItems() override;
+	void addChild(renderable2D* renderable) override;
+	void draw() override;
 
 private:
 	std::deque<StaticSprite*> m_RenderQueue;

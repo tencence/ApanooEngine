@@ -10,12 +10,12 @@ Simple2DRender::~Simple2DRender()
 
 }
 
-void Simple2DRender::addItem(renderable2D* renderable)
+void Simple2DRender::addChild(renderable2D* renderable)
 {
 	m_RenderQueue.push_back((StaticSprite*)renderable);
 }
 
-void Simple2DRender::drawItems()
+void Simple2DRender::draw()
 {
 	while (!m_RenderQueue.empty())
 	{

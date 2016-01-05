@@ -8,6 +8,7 @@
 #include "../shader/shader.h"
 
 #include "../../maths/maths.h"
+#include "Render2D.h"
 
 // 顶点结构体
 struct VertexData
@@ -24,7 +25,16 @@ public:
 
 	~renderable2D();
 
+protected:
+	renderable2D() {}
+
 public:
+
+	// 增加渲染体
+	virtual void addToParent(Render2D* render)
+	{
+		render->addChild(this);
+	}
 
 	inline const vec3& getPosition() const { return m_Position; }
 	inline const vec2& getSize() const { return m_Size; }

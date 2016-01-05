@@ -16,6 +16,8 @@
 
 #include "../apengine/graphics/render2D/tilelayer.h"
 
+#include "../apengine/graphics/render2D/group.h"
+
 #include <time.h>
 #define TEST_50K 0
 
@@ -66,20 +68,26 @@ BOOL MainScene2D::initGL(GLvoid)
 	{
 		for (float x = -16.0f; x < 16.0f; x += 0.1f)
 		{
-			m_TileLayer->addItem(new Sprite(x, y, 0.09f, 0.09f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+			m_TileLayer->addChild(new Sprite(x, y, 0.09f, 0.09f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
 		}
 	}
 #else
-	Sprite* button = new Sprite(-15.0f, 5.0f, 6, 3, vec4(1, 1, 1, 1));
-	m_TileLayer->addItem(button);
-	m_TileLayer->push(button->getPosition());
-	m_TileLayer->addItem(new Sprite(0.5f, 0.5f, 5, 2, vec4(1, 0, 1, 1)));
-	m_TileLayer->pop();
+	mat4 tran = mat4::translation(vec3(-15.0f, 5.0f, 0.0f)) * mat4::rotation(45.0f, vec3(0, 0, 1));
+	Group* group = new Group(tran);
+	group->addChild(new Sprite(0, 0, 6, 3, vec4(1, 1, 1, 1)));
+	group->addChild(new Sprite(0.5f, 0.5f, 5.0f, 2.0f, vec4(1, 0, 1, 1)));
+
+	Group* button = new Group(mat4::translation(vec3(0.5f, 0.5f, 0.0f)));
+	button->addChild(new Sprite(0, 0, 5, 2, vec4(1, 0, 1, 1)));
+	button->addChild(new Sprite(0.5f, 0.5f, 3.0f, 1.0f, vec4(0.2f, 0.3f, 0.8f, 1.0f)));
+	group->addChild(button);
+	
+	m_TileLayer->addChild(group);
 #endif
 	
 	// layer 2
 	m_layer2 = new TileLayer(&shader2);
-	m_layer2->addItem(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
+	m_layer2->addChild(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
 
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;

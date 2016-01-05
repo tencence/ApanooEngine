@@ -2,18 +2,23 @@
 #pragma once
 #include "gl/glew.h"
 #include "../../maths/maths.h"
-#include "renderable2D.h"
+#include <vector>
 
+class renderable2D;
 class Render2D 
 {
 public:
-	Render2D ();
+	Render2D()
+	{
+		m_TransformationStack.push_back(mat4::identity());
+		m_TransformationBack = &m_TransformationStack.back();
+	}
 
 public:
 	virtual void begin() {}
-	virtual void addItem(renderable2D* renderable) = 0;
+	virtual void addChild(renderable2D* renderable) = 0;
 	virtual void end() {}
-	virtual void drawItems() = 0;
+	virtual void draw() = 0;
 
 	void push(const mat4& matrix, bool override = false)  // »Î’ª
 	{

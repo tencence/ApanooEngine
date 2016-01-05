@@ -18,7 +18,7 @@ void Batch2DRender::begin()
 	m_Buffer = (VertexData*)glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
 }
 
-void Batch2DRender::addItem(renderable2D* renderable)
+void Batch2DRender::addChild(renderable2D* renderable)
 {
 	const vec3& position = renderable->getPosition();
 	const vec2& size = renderable->getSize();
@@ -62,7 +62,7 @@ void Batch2DRender::end()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void Batch2DRender::drawItems()
+void Batch2DRender::draw()
 {
 	glBindVertexArray(m_VAO);
 	m_IBO->bind();

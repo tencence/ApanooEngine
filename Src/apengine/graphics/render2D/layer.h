@@ -6,7 +6,7 @@ class Layer
 {
 public:
 	virtual ~Layer();
-	virtual void addItem(renderable2D* renderable);
+	virtual void addChild(renderable2D* renderable);
 	virtual void render();
 protected:
 	Layer(Render2D* render, Shader* shader, mat4 projectionMatrix);

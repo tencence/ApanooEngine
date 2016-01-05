@@ -2,6 +2,7 @@
 #pragma once
 #include "render2D.h"
 #include "../buffers/indexbuffer.h"
+#include "renderable2D.h"
 #include <cstddef>
 
 #define RENDER_MAX_SPRITES  60000									// 绘制精灵个数限制
@@ -19,9 +20,9 @@ public:
 	Batch2DRender();
 	~Batch2DRender();
 	void begin() override;
-	void addItem(renderable2D* renderable) override;
+	void addChild(renderable2D* renderable) override;
 	void end() override;
-	void drawItems() override;
+	void draw() override;
 
 private:
 	void init();

@@ -18,7 +18,7 @@ Layer::~Layer()
 	}
 }
 
-void Layer::addItem(renderable2D* renderable)
+void Layer::addChild(renderable2D* renderable)
 {
 	m_Renderables.push_back(renderable);
 }
@@ -32,10 +32,10 @@ void Layer::render()
 
 	for (renderable2D* renderable:m_Renderables)
 	{
-		m_Render->addItem(renderable); // 添加item
+		renderable->addToParent(m_Render); // 添加item
 	}
 
 	m_Render->end();
-	m_Render->drawItems(); // 绘制item
+	m_Render->draw(); // 绘制item
 }
 
