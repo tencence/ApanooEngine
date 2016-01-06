@@ -9,8 +9,8 @@
 #include "../apengine/graphics/render2D/simple2Drender.h"
 #include "../apengine/graphics/render2D/renderable2D.h"
 
-#include "../apengine/graphics/render2D/staticSprite.h"
-#include "../apengine/graphics/render2D/sprite.h"
+#include "../apengine/graphics/render2D/simpleSprite.h"
+#include "../apengine/graphics/render2D/batchSprite.h"
 
 #include "../apengine/graphics/render2D/batch2DRender.h"
 
@@ -20,15 +20,16 @@
 #include "../apengine/graphics/render2D/texture.h"
 #include "../apengine/graphics/TextureManager/TextureManager.h"
 
+#include <time.h>
+
 MainScene2D::MainScene2D()
 {
-	m_Time = 0;
-	m_Frames = 0;
+
 }
 
 MainScene2D::~MainScene2D()
 {
-
+	delete m_Texture;
 }
 
 Shader shader("shader/triangles.vert", "shader/triangles.frag");
@@ -55,28 +56,28 @@ BOOL MainScene2D::initGL(GLvoid)
 	
 	// shader 1
 	shader.enable();
-	shader.setUniform2f("light_pos", vec2(-8.0f, -3.0f));
+	shader.setUniform2f("light_pos", vec2(0.0f, 0.0f));
 
 	// tile layer
 	m_TileLayer = new TileLayer(&shader);
+	m_Texture[0] = new Texture("texture/basic.png");
+	m_Texture[1] = new Texture("texture/last.bmp");
+	m_Texture[2] = new Texture("texture/ccc.png");
+	m_Texture[3] = new Texture("texture/ddd.bmp");
+
 	for (int y = -9.0f; y < 9.0f; y ++)
 	{
 		for (int x = -16.0f; x < 16.0f; x ++)
 		{
-			m_TileLayer->addChild(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+			m_TileLayer->addChild(new BatchSprite(x, y, 0.9f, 0.9f,m_Texture[rand() % 4]));
 		}
 	}
-	glActiveTexture(GL_TEXTURE0);
-	m_Texture = new Texture("texture/basic.png");
-	m_Texture->bind();
 
-	int texIDs[] = {
+	GLint texIDs[] = {
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 	};
-	
 	shader.enable();
 	shader.setUniform1iv("textures", 10, texIDs);
-	shader.setUniformMat4("pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1, 1));
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;
 }

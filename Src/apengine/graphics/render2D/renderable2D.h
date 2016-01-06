@@ -56,10 +56,12 @@ public:
 	inline const std::vector<vec2>& getUV() { return m_UV; }
 	inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
 
-public:
+private:
 	vec3 m_Position;		// 位置
 	vec2 m_Size;			// 大小
 	vec4 m_Color;			// 颜色
 	std::vector<vec2> m_UV; // 纹理坐标
+
+protected:
 	Texture* m_Texture;		// 纹理
 };

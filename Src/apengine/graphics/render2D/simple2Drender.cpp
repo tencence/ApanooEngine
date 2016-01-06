@@ -12,14 +12,14 @@ Simple2DRender::~Simple2DRender()
 
 void Simple2DRender::addChild(renderable2D* renderable)
 {
-	m_RenderQueue.push_back((StaticSprite*)renderable);
+	m_RenderQueue.push_back((SimpleSprite*)renderable);
 }
 
 void Simple2DRender::render()
 {
 	while (!m_RenderQueue.empty())
 	{
-		StaticSprite* sprite = m_RenderQueue.front();
+		SimpleSprite* sprite = m_RenderQueue.front();
 		sprite->getVAO()->bind();
 		sprite->getIBO()->bind();
 

@@ -30,13 +30,7 @@ public:
 
 private:
 	Render2D* render;
-	std::vector<renderable2D*> m_sprites; // ¾«Áé×é
-	Timer m_Timer;
-	float m_Time;
-	unsigned int m_Frames;
 	TileLayer* m_TileLayer;
-	TileLayer* m_layer2;
 
-	Texture* m_Texture;
-	GLuint m_TexID[1];
+	Texture* m_Texture[4];
 };

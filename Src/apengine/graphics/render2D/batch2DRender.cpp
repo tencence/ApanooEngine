@@ -35,7 +35,7 @@ void Batch2DRender::addChild(renderable2D* renderable)
 		{
 			if (m_TextureSlots[i] == tid)
 			{
-				ts = (float)i;
+				ts = (float)(i + 1);
 				found = true;
 				break;
 			}
@@ -49,7 +49,7 @@ void Batch2DRender::addChild(renderable2D* renderable)
 				begin();
 			}
 			m_TextureSlots.push_back(tid);
-			ts = (float)(m_TextureSlots.size() - 1);
+			ts = (float)(m_TextureSlots.size());
 		}
 	}
 	else {  // 采用纹理时不需要计算设置的颜色

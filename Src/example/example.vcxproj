@@ -110,8 +110,8 @@
     <ClCompile Include="..\apengine\graphics\render2D\render2D.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\renderable2D.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\simple2DRender.cpp" />
-    <ClCompile Include="..\apengine\graphics\render2D\sprite.cpp" />
-    <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp" />
+    <ClCompile Include="..\apengine\graphics\render2D\batchSprite.cpp" />
+    <ClCompile Include="..\apengine\graphics\render2D\simpleSprite.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\texture.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp" />
     <ClCompile Include="..\apengine\graphics\render3D\Mesh.cpp" />
@@ -140,8 +140,8 @@
     <ClInclude Include="..\apengine\graphics\render2D\render2D.h" />
     <ClInclude Include="..\apengine\graphics\render2D\renderable2D.h" />
     <ClInclude Include="..\apengine\graphics\render2D\simple2DRender.h" />
-    <ClInclude Include="..\apengine\graphics\render2D\sprite.h" />
-    <ClInclude Include="..\apengine\graphics\render2D\staticSprite.h" />
+    <ClInclude Include="..\apengine\graphics\render2D\batchSprite.h" />
+    <ClInclude Include="..\apengine\graphics\render2D\simpleSprite.h" />
     <ClInclude Include="..\apengine\graphics\render2D\texture.h" />
     <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h" />
     <ClInclude Include="..\apengine\graphics\render3D\Mesh.h" />

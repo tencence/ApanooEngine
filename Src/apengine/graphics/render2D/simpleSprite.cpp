@@ -1,6 +1,6 @@
-#include "staticSprite.h"
+#include "simpleSprite.h"
 
-StaticSprite::StaticSprite(float x, float y, float width, float height, vec4& color, Shader& shader)
+SimpleSprite::SimpleSprite(float x, float y, float width, float height, vec4& color, Shader& shader)
 	: renderable2D(vec3(x, y, 0), vec2(width, height), color), m_Shader(shader)
 {
 	m_VertexArray = new VertexArray();
@@ -37,7 +37,7 @@ StaticSprite::StaticSprite(float x, float y, float width, float height, vec4& co
 	m_IndexBuffer = new IndexBuffer(m_Indices, 6);
 }
 
-StaticSprite::~StaticSprite()
+SimpleSprite::~SimpleSprite()
 {
 	delete m_VertexArray;
 	delete m_IndexBuffer;

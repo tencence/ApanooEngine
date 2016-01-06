@@ -3,11 +3,11 @@
 #include "renderable2D.h"
 #include "../../maths/maths.h"
 
-class StaticSprite : public renderable2D
+class SimpleSprite : public renderable2D
 {
 public:
-	StaticSprite (float x, float y, float width, float height, vec4& color, Shader& shader);
-	~StaticSprite ();
+	SimpleSprite (float x, float y, float width, float height, vec4& color, Shader& shader);
+	~SimpleSprite ();
 
 	// get VBO, IBO Shader
 	inline VertexArray* getVAO() const { return m_VertexArray; }

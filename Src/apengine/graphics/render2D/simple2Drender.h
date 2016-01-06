@@ -2,7 +2,7 @@
 #pragma once
 #include <deque>
 #include "render2D.h"
-#include "staticSprite.h"
+#include "simpleSprite.h"
 
 class Simple2DRender : public Render2D
 {
@@ -15,5 +15,5 @@ public:
 	void render() override;
 
 private:
-	std::deque<StaticSprite*> m_RenderQueue;
+	std::deque<SimpleSprite*> m_RenderQueue;
 };

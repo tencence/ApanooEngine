@@ -52,12 +52,6 @@
     <ClCompile Include="..\apengine\graphics\render2D\simple2DRender.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
-    <ClCompile Include="..\apengine\graphics\render2D\sprite.cpp">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClCompile>
-    <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClCompile>
     <ClCompile Include="MainScene3D.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -80,6 +74,12 @@
       <Filter>apengine\graphics\render2D\layers</Filter>
     </ClCompile>
     <ClCompile Include="..\apengine\graphics\render2D\texture.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\batchSprite.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\simpleSprite.cpp">
       <Filter>apengine\graphics\render2D</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,12 +150,6 @@
     <ClInclude Include="..\apengine\graphics\render2D\simple2DRender.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
-    <ClInclude Include="..\apengine\graphics\render2D\sprite.h">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClInclude>
-    <ClInclude Include="..\apengine\graphics\render2D\staticSprite.h">
-      <Filter>apengine\graphics\render2D</Filter>
-    </ClInclude>
     <ClInclude Include="..\apengine\utils\timer.h">
       <Filter>apengine\utils</Filter>
     </ClInclude>
@@ -184,6 +178,12 @@
       <Filter>apengine\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\apengine\graphics\render2D\texture.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\batchSprite.h">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\simpleSprite.h">
       <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
   </ItemGroup>
