@@ -6,6 +6,7 @@
 class Render2D;
 class renderable2D;
 class TileLayer;
+class Texture;
 
 class MainScene2D : public GLWindow
 {
@@ -35,4 +36,7 @@ private:
 	unsigned int m_Frames;
 	TileLayer* m_TileLayer;
 	TileLayer* m_layer2;
+
+	Texture* m_Texture;
+	GLuint m_TexID[1];
 };

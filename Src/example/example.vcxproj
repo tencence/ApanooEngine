@@ -46,16 +46,16 @@
     <OutDir>../../Bin/Debug/</OutDir>
     <IntDir>../../Objs/Debug/</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;../../SDKs/freeimage/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;../../SDKs/freeimage/lib;$(LibraryPath)</LibraryPath>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>../../Bin/Release/</OutDir>
     <IntDir>../../Objs/Release/</IntDir>
-    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;../../SDKs/freeimage/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;../../SDKs/freeimage/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -71,6 +71,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>../../Bin/Debug/$(ProjectName)_d.exe</OutputFile>
+      <AdditionalDependencies>freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -95,6 +96,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>../../Bin/Release/$(ProjectName).exe</OutputFile>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -110,6 +112,7 @@
     <ClCompile Include="..\apengine\graphics\render2D\simple2DRender.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\sprite.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\staticSprite.cpp" />
+    <ClCompile Include="..\apengine\graphics\render2D\texture.cpp" />
     <ClCompile Include="..\apengine\graphics\render2D\tilelayer.cpp" />
     <ClCompile Include="..\apengine\graphics\render3D\Mesh.cpp" />
     <ClCompile Include="..\apengine\graphics\render3D\Vertex.cpp" />
@@ -139,6 +142,7 @@
     <ClInclude Include="..\apengine\graphics\render2D\simple2DRender.h" />
     <ClInclude Include="..\apengine\graphics\render2D\sprite.h" />
     <ClInclude Include="..\apengine\graphics\render2D\staticSprite.h" />
+    <ClInclude Include="..\apengine\graphics\render2D\texture.h" />
     <ClInclude Include="..\apengine\graphics\render2D\tilelayer.h" />
     <ClInclude Include="..\apengine\graphics\render3D\Mesh.h" />
     <ClInclude Include="..\apengine\graphics\render3D\Vertex.h" />
@@ -153,6 +157,7 @@
     <ClInclude Include="..\apengine\maths\vec3.h" />
     <ClInclude Include="..\apengine\maths\vec4.h" />
     <ClInclude Include="..\apengine\utils\FileUtils.h" />
+    <ClInclude Include="..\apengine\utils\ImageLoad.h" />
     <ClInclude Include="..\apengine\utils\timer.h" />
     <ClInclude Include="AppDelegate.h" />
     <ClInclude Include="Main.h" />

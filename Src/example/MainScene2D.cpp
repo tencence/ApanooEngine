@@ -17,9 +17,10 @@
 #include "../apengine/graphics/render2D/tilelayer.h"
 
 #include "../apengine/graphics/render2D/group.h"
+#include "../apengine/graphics/render2D/texture.h"
+#include "../apengine/graphics/TextureManager/TextureManager.h"
 
 #include <time.h>
-#define TEST_50K 0
 
 MainScene2D::MainScene2D()
 {
@@ -33,7 +34,6 @@ MainScene2D::~MainScene2D()
 }
 
 Shader shader("shader/triangles.vert", "shader/triangles.frag");
-Shader shader2("shader/triangles.vert", "shader/triangles.frag");
 
 BOOL MainScene2D::initGL(GLvoid)
 {
@@ -50,45 +50,32 @@ BOOL MainScene2D::initGL(GLvoid)
 
 	// 最精细的透视计算
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); 
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);    // 线性滤波
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);    // 线性滤波
 
 	/////////////////////////////初始化////////////////////////////////////////
 	
 	// shader 1
 	shader.enable();
 	shader.setUniform2f("light_pos", vec2(-8.0f, -3.0f));
-	
-	// shader 2
-	shader2.enable();
-	shader2.setUniform2f("light_pos", vec2(4.0f, 2.0f));
 
 	// tile layer
 	m_TileLayer = new TileLayer(&shader);
-#if TEST_50K
-	for (float y = -9.0f; y < 9.0f; y += 0.1f)
+	for (int y = -9.0f; y < 9.0f; y ++)
 	{
-		for (float x = -16.0f; x < 16.0f; x += 0.1f)
+		for (int x = -16.0f; x < 16.0f; x ++)
 		{
-			m_TileLayer->addChild(new Sprite(x, y, 0.09f, 0.09f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+			m_TileLayer->addChild(new Sprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
 		}
 	}
-#else
-	mat4 tran = mat4::translation(vec3(-15.0f, 5.0f, 0.0f)) * mat4::rotation(45.0f, vec3(0, 0, 1));
-	Group* group = new Group(tran);
-	group->addChild(new Sprite(0, 0, 6, 3, vec4(1, 1, 1, 1)));
-	group->addChild(new Sprite(0.5f, 0.5f, 5.0f, 2.0f, vec4(1, 0, 1, 1)));
+	glActiveTexture(GL_TEXTURE0);
+	m_Texture = new Texture("texture/basic.png");
 
-	Group* button = new Group(mat4::translation(vec3(0.5f, 0.5f, 0.0f)));
-	button->addChild(new Sprite(0, 0, 5, 2, vec4(1, 0, 1, 1)));
-	button->addChild(new Sprite(0.5f, 0.5f, 3.0f, 1.0f, vec4(0.2f, 0.3f, 0.8f, 1.0f)));
-	group->addChild(button);
+	m_Texture->bind();
 	
-	m_TileLayer->addChild(group);
-#endif
-	
-	// layer 2
-	m_layer2 = new TileLayer(&shader2);
-	m_layer2->addChild(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
-
+	shader.enable();
+	shader.setUniform1f("tex", 0);
+	shader.setUniformMat4("pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1, 1));
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;
 }
@@ -100,7 +87,6 @@ BOOL MainScene2D::DrawGL(GLvoid)
 	///////////////////////////////绘制////////////////////////////////////////
 
 	m_TileLayer->render();
-	//m_layer2->render();
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -141,11 +127,7 @@ HRESULT MainScene2D::OnMouseMove(WPARAM wParam, LPARAM lParam)
 	// shader 1
 	shader.enable();
 	shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / (float)this->GetWidth() - 16.0f), (float)(9.0f - y * 18.0f / (float)this->GetHeight())));
-	//shader.setUniform2f("light_pos", vec2(-8, -3));
-	
-	// shader 2
-	shader2.enable();
-	shader2.setUniform2f("light_pos", vec2((float)(x * 32.0f / (float)this->GetWidth() - 16.0f), (float)(9.0f - y * 18.0f / (float)this->GetHeight())));
+
 	return true;
 }
 

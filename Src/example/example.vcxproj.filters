@@ -79,6 +79,9 @@
     <ClCompile Include="..\apengine\graphics\render2D\group.cpp">
       <Filter>apengine\graphics\render2D\layers</Filter>
     </ClCompile>
+    <ClCompile Include="..\apengine\graphics\render2D\texture.cpp">
+      <Filter>apengine\graphics\render2D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\apengine\app\QApp.h">
@@ -176,6 +179,12 @@
     </ClInclude>
     <ClInclude Include="..\apengine\graphics\render2D\group.h">
       <Filter>apengine\graphics\render2D\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\utils\ImageLoad.h">
+      <Filter>apengine\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\apengine\graphics\render2D\texture.h">
+      <Filter>apengine\graphics\render2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

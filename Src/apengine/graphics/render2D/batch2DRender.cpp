@@ -23,6 +23,7 @@ void Batch2DRender::addChild(renderable2D* renderable)
 	const vec3& position = renderable->getPosition();
 	const vec2& size = renderable->getSize();
 	const vec4& color = renderable->getColor();
+	const std::vector<vec2>& uv = renderable->getUV();
 	
 	int r = color.x * 255.0f;
 	int g = color.y * 255.0f;
@@ -34,21 +35,25 @@ void Batch2DRender::addChild(renderable2D* renderable)
 
 	// point 1 : 从变换矩阵栈中的当前矩阵计算真实位置
 	m_Buffer->vertex = *m_TransformationBack * position;
+	m_Buffer->uv = uv[0];
 	m_Buffer->color = c;
 	m_Buffer++;
 	
 	// point 2
 	m_Buffer->vertex = *m_TransformationBack * vec3(position.x, position.y + size.y, position.z);
+	m_Buffer->uv = uv[1];
 	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 3
 	m_Buffer->vertex = *m_TransformationBack * vec3(position.x + size.x, position.y + size.y, position.z);
+	m_Buffer->uv = uv[2];
 	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 4
 	m_Buffer->vertex = *m_TransformationBack * vec3(position.x + size.x, position.y, position.z);
+	m_Buffer->uv = uv[3];
 	m_Buffer->color = c;
 	m_Buffer++;
 
@@ -92,10 +97,14 @@ void Batch2DRender::init()
 	glBufferData(GL_ARRAY_BUFFER, RENDER_BUFFER_SIZE, NULL, GL_DYNAMIC_DRAW);
 
 	glEnableVertexAttribArray(SHADER_VERTEX_INDEX);
+	glEnableVertexAttribArray(SHADER_UV_INDEX);
 	glEnableVertexAttribArray(SHADER_COLOR_INDEX);
 
 	// 顶点
 	glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, RENDER_VERTEX_SIZE, (const GLvoid*)0);
+
+	// 纹理
+	glVertexAttribPointer(SHADER_UV_INDEX, 2, GL_FLOAT, GL_FALSE, RENDER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::uv)));
 
 	// 颜色
 	glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::color)));

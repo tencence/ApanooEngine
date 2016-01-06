@@ -12,7 +12,8 @@
 #define RENDER_INDICES_SIZE RENDER_MAX_SPRITES * 6					// 索引数量限制
 
 #define SHADER_VERTEX_INDEX 0										// 顶点location
-#define SHADER_COLOR_INDEX  1										// 颜色location
+#define SHADER_UV_INDEX     1										// 纹理location
+#define SHADER_COLOR_INDEX  2										// 颜色location
 
 class Batch2DRender : public Render2D
 {
