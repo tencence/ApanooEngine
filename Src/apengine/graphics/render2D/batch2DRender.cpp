@@ -20,40 +20,73 @@ void Batch2DRender::begin()
 
 void Batch2DRender::addChild(renderable2D* renderable)
 {
-	const vec3& position = renderable->getPosition();
-	const vec2& size = renderable->getSize();
-	const vec4& color = renderable->getColor();
-	const std::vector<vec2>& uv = renderable->getUV();
+	const vec3& position = renderable->getPosition();	   // 获取位置
+	const vec2& size = renderable->getSize();			   // 获取尺寸
+	const vec4& color = renderable->getColor();			   // 获取颜色
+	const std::vector<vec2>& uv = renderable->getUV();     // 获取纹理坐标
+	const GLuint tid = renderable->getTID();               // 获取纹理ID
 	
-	int r = color.x * 255.0f;
-	int g = color.y * 255.0f;
-	int b = color.z * 255.0f;
-	int a = color.w * 255.0f;
+	unsigned int c = 0;
+	float ts = 0.0f;
+	if (tid > 0)
+	{
+		bool found = false;
+		for (int i = 0;i < m_TextureSlots.size();i++)
+		{
+			if (m_TextureSlots[i] == tid)
+			{
+				ts = (float)i;
+				found = true;
+				break;
+			}
+		}
+		if (!found) // 没找到，重新开始
+		{
+			if (m_TextureSlots.size() >= 32)
+			{
+				end();
+				render();
+				begin();
+			}
+			m_TextureSlots.push_back(tid);
+			ts = (float)(m_TextureSlots.size() - 1);
+		}
+	}
+	else {  // 采用纹理时不需要计算设置的颜色
+		int r = color.x * 255.0f;
+		int g = color.y * 255.0f;
+		int b = color.z * 255.0f;
+		int a = color.w * 255.0f;
 
-	// 计算颜色
-	unsigned int c = a << 24 | b << 16 | g << 8 | r;
+		// 计算颜色
+		c = a << 24 | b << 16 | g << 8 | r;
+	}
 
 	// point 1 : 从变换矩阵栈中的当前矩阵计算真实位置
 	m_Buffer->vertex = *m_TransformationBack * position;
 	m_Buffer->uv = uv[0];
+	m_Buffer->tid = ts;
 	m_Buffer->color = c;
 	m_Buffer++;
 	
 	// point 2
 	m_Buffer->vertex = *m_TransformationBack * vec3(position.x, position.y + size.y, position.z);
 	m_Buffer->uv = uv[1];
+	m_Buffer->tid = ts;
 	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 3
 	m_Buffer->vertex = *m_TransformationBack * vec3(position.x + size.x, position.y + size.y, position.z);
 	m_Buffer->uv = uv[2];
+	m_Buffer->tid = ts;
 	m_Buffer->color = c;
 	m_Buffer++;
 
 	// point 4
 	m_Buffer->vertex = *m_TransformationBack * vec3(position.x + size.x, position.y, position.z);
 	m_Buffer->uv = uv[3];
+	m_Buffer->tid = ts;
 	m_Buffer->color = c;
 	m_Buffer++;
 
@@ -67,8 +100,14 @@ void Batch2DRender::end()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-void Batch2DRender::draw()
+void Batch2DRender::render()
 {
+	for (int i = 0;i < m_TextureSlots.size();i++)
+	{
+		glActiveTexture(GL_TEXTURE0 + i);				 // 激活纹理
+		glBindTexture(GL_TEXTURE_2D, m_TextureSlots[i]);  // 绑定纹理
+	}
+
 	glBindVertexArray(m_VAO);
 	m_IBO->bind();
 
@@ -84,11 +123,10 @@ void Batch2DRender::draw()
 void Batch2DRender::init()
 {
 	glGenVertexArrays(1, &m_VAO);
+	glGenBuffers(1, &m_VBO);
 
 	// bind vertex array
 	glBindVertexArray(m_VAO);
-
-	glGenBuffers(1, &m_VBO);
 
 	// bind buffer
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
@@ -98,6 +136,7 @@ void Batch2DRender::init()
 
 	glEnableVertexAttribArray(SHADER_VERTEX_INDEX);
 	glEnableVertexAttribArray(SHADER_UV_INDEX);
+	glEnableVertexAttribArray(SHADER_TID_INDEX);
 	glEnableVertexAttribArray(SHADER_COLOR_INDEX);
 
 	// 顶点
@@ -105,6 +144,9 @@ void Batch2DRender::init()
 
 	// 纹理
 	glVertexAttribPointer(SHADER_UV_INDEX, 2, GL_FLOAT, GL_FALSE, RENDER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::uv)));
+
+	// 纹理id
+	glVertexAttribPointer(SHADER_TID_INDEX, 1, GL_FLOAT, GL_FALSE, RENDER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::tid)));
 
 	// 颜色
 	glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, RENDER_VERTEX_SIZE, (const GLvoid*)(offsetof(VertexData, VertexData::color)));

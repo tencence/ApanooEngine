@@ -15,7 +15,7 @@ void Simple2DRender::addChild(renderable2D* renderable)
 	m_RenderQueue.push_back((StaticSprite*)renderable);
 }
 
-void Simple2DRender::draw()
+void Simple2DRender::render()
 {
 	while (!m_RenderQueue.empty())
 	{

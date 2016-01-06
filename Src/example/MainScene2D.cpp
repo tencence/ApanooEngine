@@ -20,8 +20,6 @@
 #include "../apengine/graphics/render2D/texture.h"
 #include "../apengine/graphics/TextureManager/TextureManager.h"
 
-#include <time.h>
-
 MainScene2D::MainScene2D()
 {
 	m_Time = 0;
@@ -70,11 +68,14 @@ BOOL MainScene2D::initGL(GLvoid)
 	}
 	glActiveTexture(GL_TEXTURE0);
 	m_Texture = new Texture("texture/basic.png");
-
 	m_Texture->bind();
+
+	int texIDs[] = {
+		0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+	};
 	
 	shader.enable();
-	shader.setUniform1f("tex", 0);
+	shader.setUniform1iv("textures", 10, texIDs);
 	shader.setUniformMat4("pr_matrix", mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1, 1));
 	//////////////////////////////////////////////////////////////////////////
 	return TRUE;
@@ -91,15 +92,6 @@ BOOL MainScene2D::DrawGL(GLvoid)
 	//////////////////////////////////////////////////////////////////////////
 
 	glFlush(); // Ë¢ÐÂ
-
-	// timer
-	m_Frames++;
-	if (m_Timer.elapsed() - m_Time > 1.0f)
-	{
-		m_Time += 1.0f;
-		int frames = m_Frames;
-		m_Frames = 0;
-	}
 
 	return TRUE;
 }

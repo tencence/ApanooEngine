@@ -13,7 +13,8 @@
 
 #define SHADER_VERTEX_INDEX 0										// 顶点location
 #define SHADER_UV_INDEX     1										// 纹理location
-#define SHADER_COLOR_INDEX  2										// 颜色location
+#define SHADER_TID_INDEX    2										// 纹理id location
+#define SHADER_COLOR_INDEX  3										// 颜色location
 
 class Batch2DRender : public Render2D
 {
@@ -23,7 +24,7 @@ public:
 	void begin() override;
 	void addChild(renderable2D* renderable) override;
 	void end() override;
-	void draw() override;
+	void render() override;
 
 private:
 	void init();
@@ -35,4 +36,6 @@ private:
 	GLsizei m_IndexCount;
 
 	VertexData* m_Buffer;
+
+	std::vector<GLuint> m_TextureSlots;
 };

@@ -18,7 +18,7 @@ public:
 	virtual void begin() {}
 	virtual void addChild(renderable2D* renderable) = 0;
 	virtual void end() {}
-	virtual void draw() = 0;
+	virtual void render() = 0;
 
 	void push(const mat4& matrix, bool override = false)  // »Î’ª
 	{

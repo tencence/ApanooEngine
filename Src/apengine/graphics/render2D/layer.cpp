@@ -36,6 +36,6 @@ void Layer::render()
 	}
 
 	m_Render->end();
-	m_Render->draw(); // »æÖÆitem
+	m_Render->render(); // »æÖÆitem
 }
 

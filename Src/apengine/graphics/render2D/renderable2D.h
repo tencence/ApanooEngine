@@ -9,6 +9,7 @@
 
 #include "../../maths/maths.h"
 #include "Render2D.h"
+#include "texture.h"
 
 // 顶点结构体
 struct VertexData
@@ -16,6 +17,7 @@ struct VertexData
 	vec3 vertex;
 	// vec4 color; // 初始
 	vec2 uv;       // 纹理坐标
+	float tid;     // 纹理ID
 	unsigned int color; // 优化
 };
 
@@ -52,10 +54,12 @@ public:
 	inline const vec2& getSize() const { return m_Size; }
 	inline const vec4& getColor() const { return m_Color; }
 	inline const std::vector<vec2>& getUV() { return m_UV; }
+	inline const GLuint getTID() const { return m_Texture == nullptr ? 0 : m_Texture->getID(); }
 
 public:
-	vec3 m_Position;  // 位置
-	vec2 m_Size;	  // 大小
-	vec4 m_Color;	  // 颜色
-	std::vector<vec2> m_UV; // 纹理
+	vec3 m_Position;		// 位置
+	vec2 m_Size;			// 大小
+	vec4 m_Color;			// 颜色
+	std::vector<vec2> m_UV; // 纹理坐标
+	Texture* m_Texture;		// 纹理
 };

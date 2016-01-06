@@ -15,7 +15,7 @@ public:
 
 	// ½â³ı°ó¶¨
 	void unbind() const;
-
+	inline const unsigned int getID() const { return m_TID; }
 	inline const unsigned int getWidth() { return m_Width; }
 	inline const unsigned int getHeight() { return m_Height; }
 

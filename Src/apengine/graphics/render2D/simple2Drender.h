@@ -12,7 +12,7 @@ public:
 
 public:
 	void addChild(renderable2D* renderable) override;
-	void draw() override;
+	void render() override;
 
 private:
 	std::deque<StaticSprite*> m_RenderQueue;
