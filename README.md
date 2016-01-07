@@ -1,14 +1,17 @@
 ##ApanooEngine
 ###What for
-- just for fun
+- Apengine: opengl学习知识点整合项目之1
+- plan ： 项目2： graphic engine； 项目3： game engine editor
 
 ###Evironment
 - Windows only
 
 ###Base
-- OpenGL
-- C++/C
-- Win32 API
+- OpenGL （+）
+- C++/C  （+）
+- Win32 API （+）
+- FreeImage （OK）
+- FreeType  （OK）
 - Assimp
 - OpenAL
 - Box2D

@@ -46,16 +46,16 @@
     <OutDir>../../Bin/Debug/</OutDir>
     <IntDir>../../Objs/Debug/</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;../../SDKs/freeimage/include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;../../SDKs/freeimage/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;../../SDKs/freeimage/include;../../SDKs/freetype/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;../../SDKs/freeimage/lib;../../SDKs/freetype/lib;$(LibraryPath)</LibraryPath>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>../../Bin/Release/</OutDir>
     <IntDir>../../Objs/Release/</IntDir>
-    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;../../SDKs/freeimage/include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;../../SDKs/freeimage/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../SDKs/freeglut/include;../../SDKs/glew/include;../../SDKs/freeimage/include;../../SDKs/freetype/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../SDKs/freeglut/lib;../../SDKs/glew/lib;../../SDKs/freeimage/lib;../../SDKs/freetype/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -71,7 +71,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>../../Bin/Debug/$(ProjectName)_d.exe</OutputFile>
-      <AdditionalDependencies>freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeimage.lib;freetype255MTd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,7 +96,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>../../Bin/Release/$(ProjectName).exe</OutputFile>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeimage.lib;freetype255MTd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

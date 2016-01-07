@@ -7,18 +7,17 @@
 #include "../apengine/graphics/shader/shader.h"
 
 #include "../apengine/graphics/render2D/simple2Drender.h"
-#include "../apengine/graphics/render2D/renderable2D.h"
 
 #include "../apengine/graphics/render2D/simpleSprite.h"
 #include "../apengine/graphics/render2D/batchSprite.h"
 
-#include "../apengine/graphics/render2D/batch2DRender.h"
-
+//#include "../apengine/graphics/render2D/batch2DRender.h"
 #include "../apengine/graphics/render2D/tilelayer.h"
 
 #include "../apengine/graphics/render2D/group.h"
 #include "../apengine/graphics/render2D/texture.h"
-#include "../apengine/graphics/TextureManager/TextureManager.h"
+
+#include "../apengine/utils/timer.h" // timer for fps count
 
 #include <time.h>
 
@@ -29,7 +28,9 @@ MainScene2D::MainScene2D()
 
 MainScene2D::~MainScene2D()
 {
-	delete m_Texture;
+	for (int i = 0;i < 4;i++) {
+		delete m_Texture[i];
+	}
 }
 
 Shader shader("shader/triangles.vert", "shader/triangles.frag");
@@ -69,7 +70,12 @@ BOOL MainScene2D::initGL(GLvoid)
 	{
 		for (int x = -16.0f; x < 16.0f; x ++)
 		{
-			m_TileLayer->addChild(new BatchSprite(x, y, 0.9f, 0.9f,m_Texture[rand() % 4]));
+			if (rand() % 3 == 0) { // 无材质
+				m_TileLayer->addChild(new BatchSprite(x, y, 0.9f, 0.9f, vec4(rand() % 1000 / 1000.0, rand() % 1000 / 1000.0, rand() % 1000 / 1000.0, 1)));
+			}
+			else { // 有材质
+				m_TileLayer->addChild(new BatchSprite(x, y, 0.9f, 0.9f,m_Texture[rand() % 4]));
+			}
 		}
 	}
 

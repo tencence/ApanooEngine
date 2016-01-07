@@ -1,0 +1,54 @@
+﻿  platform.c
+  texture-atlas.c
+freetype-gl\texture-atlas.c(132): warning C4090: “=”: 不同的“const”限定符
+freetype-gl\texture-atlas.c(236): warning C4018: “<”: 有符号/无符号不匹配
+  texture-font.c
+  vector.c
+  autofit.c
+e:\学习资料\opengl\engine\apanooengine\src\dependencies\freetype\src\autofit\afscript.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\学习资料\opengl\engine\apanooengine\src\dependencies\freetype\src\autofit\afscript.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\学习资料\opengl\engine\apanooengine\src\dependencies\freetype\src\autofit\afblue.c : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\学习资料\opengl\engine\apanooengine\src\dependencies\freetype\src\autofit\afscript.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\学习资料\opengl\engine\apanooengine\src\dependencies\freetype\src\autofit\afscript.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\学习资料\opengl\engine\apanooengine\src\dependencies\freetype\src\autofit\afscript.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ftbase.c
+  ftbbox.c
+  ftbitmap.c
+  ftdebug.c
+  ftfstype.c
+  ftgasp.c
+  ftglyph.c
+  ftgxval.c
+  ftinit.c
+  ftlcdfil.c
+  ftmm.c
+  ftotval.c
+  ftpatent.c
+  ftpfr.c
+  ftstroke.c
+  正在编译...
+  ftsynth.c
+  ftsystem.c
+  fttype1.c
+  ftwinfnt.c
+  ftxf86.c
+  bdf.c
+  ftcache.c
+  cff.c
+  type1cid.c
+  ftgzip.c
+  ftlzw.c
+  pcf.c
+  pfr.c
+  psaux.c
+  pshinter.c
+  psmodule.c
+  raster.c
+  sfnt.c
+  smooth.c
+  truetype.c
+  正在编译...
+  type1.c
+  type42.c
+  winfnt.c
+LINK : fatal error LNK1181: 无法打开输入文件“glew32s.lib”
